@@ -93,5 +93,31 @@ namespace MasterPc.Controllers
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
             return View(usuario);
         }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Usuario usuario = db.Usuarios.Find(id);
+            if (usuario == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario);
+
+        }
+
+        // POST: LoginAdm/Delete/
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Usuario usuario = db.Usuarios.Find(id);
+            db.Usuarios.Remove(usuario);
+            db.SaveChanges();
+            return RedirectToAction("Lista");
+        }
     }
 }
