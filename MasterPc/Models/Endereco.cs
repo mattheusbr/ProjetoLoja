@@ -11,7 +11,7 @@ namespace MasterPc.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Endereco obrigatório.")]
-        public string _Endereco { get; set; }
+        public string Rua { get; set; }
 
         [Required(ErrorMessage = "Numero obrigatório.")]
         public int Numero { get; set; }
@@ -31,5 +31,9 @@ namespace MasterPc.Models
 
         [Required(ErrorMessage = "Complemento obrigatório")]
         public string Complemento { get; set; }
+
+        public IList<Usuario> Usuarios { get; set; }
+
+        public string Resultado { get; set; }
     }
 }

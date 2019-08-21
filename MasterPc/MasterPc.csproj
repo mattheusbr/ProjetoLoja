@@ -234,6 +234,26 @@
     <Compile Include="Migrations\201908211709528_endereco2.Designer.cs">
       <DependentUpon>201908211709528_endereco2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908211751010_endereco3.cs" />
+    <Compile Include="Migrations\201908211751010_endereco3.Designer.cs">
+      <DependentUpon>201908211751010_endereco3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908211804273_endereco4.cs" />
+    <Compile Include="Migrations\201908211804273_endereco4.Designer.cs">
+      <DependentUpon>201908211804273_endereco4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908211924323_endereco5.cs" />
+    <Compile Include="Migrations\201908211924323_endereco5.Designer.cs">
+      <DependentUpon>201908211924323_endereco5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908211936506_endereco6.cs" />
+    <Compile Include="Migrations\201908211936506_endereco6.Designer.cs">
+      <DependentUpon>201908211936506_endereco6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908211937234_endereco7.cs" />
+    <Compile Include="Migrations\201908211937234_endereco7.Designer.cs">
+      <DependentUpon>201908211937234_endereco7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
     <Compile Include="Models\Compra.cs" />
@@ -2007,6 +2027,7 @@
     <Content Include="Content\vendor\jquery\jquery.min.map" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\CEP.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -2074,6 +2095,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908211709528_endereco2.resx">
       <DependentUpon>201908211709528_endereco2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908211751010_endereco3.resx">
+      <DependentUpon>201908211751010_endereco3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908211804273_endereco4.resx">
+      <DependentUpon>201908211804273_endereco4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908211924323_endereco5.resx">
+      <DependentUpon>201908211924323_endereco5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908211936506_endereco6.resx">
+      <DependentUpon>201908211936506_endereco6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908211937234_endereco7.resx">
+      <DependentUpon>201908211937234_endereco7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -689,3 +689,8 @@ C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.Migrations.hom.r
 C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.csproj.GenerateResource.cache
 C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.Migrations.endereco.resources
 C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.Migrations.endereco2.resources
+C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.Migrations.endereco3.resources
+C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.Migrations.endereco4.resources
+C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.Migrations.endereco5.resources
+C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.Migrations.endereco6.resources
+C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.Migrations.endereco7.resources
