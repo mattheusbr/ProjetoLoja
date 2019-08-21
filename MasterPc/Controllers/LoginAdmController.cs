@@ -41,7 +41,7 @@ namespace MasterPc.Controllers
             {
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Produtoes");
+                return RedirectToAction("Lista", "LoginAdm");
             }
 
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);

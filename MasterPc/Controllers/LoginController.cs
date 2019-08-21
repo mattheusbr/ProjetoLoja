@@ -108,6 +108,7 @@ namespace MasterPc.Controllers
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
             return View(usuario);
         }
+
     }
 }
 
