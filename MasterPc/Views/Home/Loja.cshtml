@@ -1,0 +1,83 @@
+﻿@model MasterPc.Models.CategoriaProduto
+@{
+    ViewBag.Title = "Loja";
+}
+
+<div class="row">
+    @*<div class="col-xs-12 col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            @if (Model.Nome == "Dairy")
+            {
+                <li class="active">
+                    <a href="">TESTE</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="">TESTE</a>
+                </li>
+            }
+            @if (Model.Nome == "Meats")
+            {
+                <li class="active">
+                    <a href="">MEATS</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="">TESTE</a>
+                </li>
+            }
+            @if (Model.Nome == "Bakery")
+            {
+                <li class="active">
+                    <a href="~/StoreFront/Index/3">BAKERY</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="~/StoreFront/Index/3">BAKERY</a>
+                </li>
+            }
+            @if (Model.Nome == "Fruits")
+            {
+                <li class="active">
+                    <a href="~/StoreFront/Index/4">FRUIT &amp; VEG</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="~/StoreFront/Index/4">FRUIT &amp; VEG</a>
+                </li>
+            }
+
+        </ul>
+    </div>*@
+    <div class="col-xs-12 col-md-9">
+        <div class="row">
+            @foreach (var product in Model.Produtos)
+            {
+                <div class="col-xs-12 col-md-3">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="~/Content/Images/Products/@(product.Nome).png">
+                        <div class="caption text-center">
+                            <p>
+                                <b>Nome:</b> <span>@product.Nome</span>
+                            </p>
+                            <p>
+                                <b>Preço:</b> <span>@product.Preco R$</span>
+                            </p>
+                            <p class="text-center">
+                                @*@Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = product.Id }, new { @class = "btn btn-info" })*@
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

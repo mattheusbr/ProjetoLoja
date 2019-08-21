@@ -1,0 +1,32 @@
+﻿<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/Home/Index"><img src="~/foto.png" style="padding-right: 15px; padding: 3px;"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="/Home/Index">Home</a></li>
+                <li><a href="#">Teste</a></li>
+                <li><a href="#">Teste</a></li>
+                <li>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                        Administrador
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a class="dropdown-item" href="~/Produtoes/Index" ><strong>Lista de Produtos</strong></a></li>
+                            <li><a class="dropdown-item" href="~/CategoriaProdutoes/Index" asp-controller=""><strong>Lista de Categorias</strong></a></li>
+                            @*<li><a class="dropdown-item" asp-action="Create" asp-controller="Guests">Hóspede</a></li>*@
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
