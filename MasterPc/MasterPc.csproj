@@ -221,7 +221,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HomeContext.cs" />
+    <Compile Include="Context\HomeContext.cs" />
     <Compile Include="Migrations\201908210117563_hom.cs" />
     <Compile Include="Migrations\201908210117563_hom.Designer.cs">
       <DependentUpon>201908210117563_hom.cs</DependentUpon>

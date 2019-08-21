@@ -21,5 +21,6 @@ public class HomeContext : DbContext
     public DbSet<CategoriaProduto> CategoriaProdutoes { get; set; }
     public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<Genero> Generos { get; set; }
+    public DbSet<Endereco> Enderecos { get; set; }
 
 }

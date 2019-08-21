@@ -109,6 +109,22 @@ namespace MasterPc.Controllers
             return View(usuario);
         }
 
+        //Criar endereço
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Endereco([Bind(Include = "Id,Logradouro,Numero,Bairro,Municipio,Estado,CEP,Complemento ")] Endereco endereco)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Enderecos.Add(endereco);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(endereco);
+        }
+
+
     }
 }
 
