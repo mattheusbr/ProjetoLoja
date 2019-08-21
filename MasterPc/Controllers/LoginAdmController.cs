@@ -12,12 +12,11 @@ using System.Web.Mvc;
 
 namespace MasterPc.Controllers
 {
-    //[AutorizacaoFilter(Roles = new TipoUsuario[] { TipoUsuario.ADMINISTRADOR })]
+    [AutorizacaoFilter(Roles = new TipoUsuario[] { TipoUsuario.ADMINISTRADOR })]
     public class LoginAdmController : Controller
     {
         private HomeContext db = new HomeContext();
 
-        // GET: Login/Create
 
         public ActionResult Lista()
         {
@@ -25,6 +24,8 @@ namespace MasterPc.Controllers
             return View(usuarios);
 
         }
+       
+        // GET: Login/Create
         public ActionResult Create()
         {
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario");
@@ -75,7 +76,9 @@ namespace MasterPc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Nome,GeneroId,Login,CPF,TipoUsuario")] Usuario usuario)
         {
+            //Setar null no campo senha
             ModelState.Where(c => c.Key.Equals(nameof(usuario.Senha))).ToList().ForEach(c => ModelState.Remove(c));
+            //
             if (ModelState.IsValid)
             {
                 UsuariosDAO dao = new UsuariosDAO();
