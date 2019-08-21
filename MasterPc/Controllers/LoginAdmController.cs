@@ -18,6 +18,13 @@ namespace MasterPc.Controllers
         private HomeContext db = new HomeContext();
 
         // GET: Login/Create
+
+        public ActionResult Lista()
+        {
+            var usuarios = db.Usuarios.Select(u => u).ToList();
+            return View(usuarios);
+
+        }
         public ActionResult Create()
         {
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario");

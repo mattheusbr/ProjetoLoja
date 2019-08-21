@@ -76,6 +76,7 @@
                                 @item.Quantidade
                             </td>
                             <td>
+                                @*Limitar campo de caracteres para visualizar na tabela*@ 
                                 @item.Descricao.Substring(0, (item.Descricao.Length > 42 ? 42 : item.Descricao.Length))@Html.ActionLink("...", "Details", new { id = item.Id })                              
                             </td>
                             <td>

@@ -2012,6 +2012,7 @@
     <Content Include="Views\LoginAdm\Create.cshtml" />
     <Content Include="Views\Login\Edit.cshtml" />
     <Content Include="Views\LoginAdm\Edit.cshtml" />
+    <Content Include="Views\LoginAdm\Lista.cshtml" />
     <None Include="Views\Produtoes\index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
