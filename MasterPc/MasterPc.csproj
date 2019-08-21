@@ -226,6 +226,14 @@
     <Compile Include="Migrations\201908210117563_hom.Designer.cs">
       <DependentUpon>201908210117563_hom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908211701446_endereco.cs" />
+    <Compile Include="Migrations\201908211701446_endereco.Designer.cs">
+      <DependentUpon>201908211701446_endereco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908211709528_endereco2.cs" />
+    <Compile Include="Migrations\201908211709528_endereco2.Designer.cs">
+      <DependentUpon>201908211709528_endereco2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
     <Compile Include="Models\Compra.cs" />
@@ -2014,6 +2022,7 @@
     <Content Include="Views\LoginAdm\Edit.cshtml" />
     <Content Include="Views\LoginAdm\Lista.cshtml" />
     <Content Include="Views\LoginAdm\Delete.cshtml" />
+    <Content Include="Views\Login\Endereco.cshtml" />
     <None Include="Views\Produtoes\index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -2059,6 +2068,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908210117563_hom.resx">
       <DependentUpon>201908210117563_hom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908211701446_endereco.resx">
+      <DependentUpon>201908211701446_endereco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908211709528_endereco2.resx">
+      <DependentUpon>201908211709528_endereco2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

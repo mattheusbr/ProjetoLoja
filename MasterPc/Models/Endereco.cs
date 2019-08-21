@@ -10,8 +10,8 @@ namespace MasterPc.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Logradouro obrigatório.")]
-        public string Logradouro { get; set; }
+        [Required(ErrorMessage = "Endereco obrigatório.")]
+        public string _Endereco { get; set; }
 
         [Required(ErrorMessage = "Numero obrigatório.")]
         public int Numero { get; set; }

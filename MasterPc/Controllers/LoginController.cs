@@ -54,7 +54,9 @@ namespace MasterPc.Controllers
             }
             if (ModelState.IsValid)
             {
+                //Seta como padrão o usuario na tabela
                 usuario.TipoUsuario = (int)TipoUsuario.USUARIO;
+                //
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,6 +94,7 @@ namespace MasterPc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Nome,GeneroId,Login,CPF,TipoUsuario")] Usuario usuario)
         {
+            //Remove a necessidade de editar a senha
             ModelState.Where(c => c.Key.Equals(nameof(usuario.Senha))).ToList().ForEach(c => ModelState.Remove(c));
 
             if (ModelState.IsValid)
@@ -101,6 +104,7 @@ namespace MasterPc.Controllers
                 if (string.IsNullOrWhiteSpace(usuario.Senha))
                 usuario.Senha = up.Senha;
 
+                //Salva
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
@@ -109,10 +113,15 @@ namespace MasterPc.Controllers
             return View(usuario);
         }
 
+        public ActionResult Endereco()
+        {
+            return View();
+        }
+
         //Criar endereço
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Endereco([Bind(Include = "Id,Logradouro,Numero,Bairro,Municipio,Estado,CEP,Complemento ")] Endereco endereco)
+        public ActionResult Endereco (Endereco endereco)
         {
 
             if (ModelState.IsValid)
