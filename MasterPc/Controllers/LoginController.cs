@@ -113,6 +113,7 @@ namespace MasterPc.Controllers
             return View(usuario);
         }
 
+        [HttpGet]
         public ActionResult Endereco()
         {
             return View();
@@ -121,7 +122,7 @@ namespace MasterPc.Controllers
         //Criar endereço
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Endereco (Endereco endereco)
+        public ActionResult Endereco ([Bind(Include = "Id,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento ")] Endereco endereco)
         {
 
             if (ModelState.IsValid)

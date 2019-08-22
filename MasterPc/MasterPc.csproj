@@ -222,37 +222,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Context\HomeContext.cs" />
-    <Compile Include="Migrations\201908210117563_hom.cs" />
-    <Compile Include="Migrations\201908210117563_hom.Designer.cs">
-      <DependentUpon>201908210117563_hom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908211701446_endereco.cs" />
-    <Compile Include="Migrations\201908211701446_endereco.Designer.cs">
-      <DependentUpon>201908211701446_endereco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908211709528_endereco2.cs" />
-    <Compile Include="Migrations\201908211709528_endereco2.Designer.cs">
-      <DependentUpon>201908211709528_endereco2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908211751010_endereco3.cs" />
-    <Compile Include="Migrations\201908211751010_endereco3.Designer.cs">
-      <DependentUpon>201908211751010_endereco3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908211804273_endereco4.cs" />
-    <Compile Include="Migrations\201908211804273_endereco4.Designer.cs">
-      <DependentUpon>201908211804273_endereco4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908211924323_endereco5.cs" />
-    <Compile Include="Migrations\201908211924323_endereco5.Designer.cs">
-      <DependentUpon>201908211924323_endereco5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908211936506_endereco6.cs" />
-    <Compile Include="Migrations\201908211936506_endereco6.Designer.cs">
-      <DependentUpon>201908211936506_endereco6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908211937234_endereco7.cs" />
-    <Compile Include="Migrations\201908211937234_endereco7.Designer.cs">
-      <DependentUpon>201908211937234_endereco7.cs</DependentUpon>
+    <Compile Include="Migrations\201908221707392_Home.cs" />
+    <Compile Include="Migrations\201908221707392_Home.Designer.cs">
+      <DependentUpon>201908221707392_Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
@@ -2087,29 +2059,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908210117563_hom.resx">
-      <DependentUpon>201908210117563_hom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908211701446_endereco.resx">
-      <DependentUpon>201908211701446_endereco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908211709528_endereco2.resx">
-      <DependentUpon>201908211709528_endereco2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908211751010_endereco3.resx">
-      <DependentUpon>201908211751010_endereco3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908211804273_endereco4.resx">
-      <DependentUpon>201908211804273_endereco4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908211924323_endereco5.resx">
-      <DependentUpon>201908211924323_endereco5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908211936506_endereco6.resx">
-      <DependentUpon>201908211936506_endereco6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908211937234_endereco7.resx">
-      <DependentUpon>201908211937234_endereco7.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908221707392_Home.resx">
+      <DependentUpon>201908221707392_Home.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

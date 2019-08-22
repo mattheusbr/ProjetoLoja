@@ -27,13 +27,12 @@ namespace MasterPc.Models
 
         //frame que busca CEP no banco do correio
         [Required(ErrorMessage = "CEP obrigatório.")]
-        public string CEP { get; set; }
+        public string cep { get; set; }
 
         [Required(ErrorMessage = "Complemento obrigatório")]
         public string Complemento { get; set; }
 
         public IList<Usuario> Usuarios { get; set; }
 
-        public string Resultado { get; set; }
     }
 }

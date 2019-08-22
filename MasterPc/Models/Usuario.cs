@@ -33,7 +33,8 @@ namespace MasterPc.Models
         public string Login { get; set; }
 
         [Required]
-        [CustomValidationCPF(ErrorMessage = "CPF inválido")]
+        [CustomValidationCPF(ErrorMessage 
+            = "CPF inválido")]
         public string CPF { get; set; }
 
         public int TipoUsuario { get; set; }
