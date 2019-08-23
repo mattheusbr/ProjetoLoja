@@ -1,77 +1,34 @@
 ﻿@model MasterPc.Models.Produto
 
-<title>MasterPcAdmin - Loja</title>
+<div class="container">
 
-<div class="card mb-3">
-    <div class="card-header">
-        &nbsp;
-    </div>
-    <div class="card-body">
-        <dl class="dl-horizontal">
+    <div class="row">
+        <div class="col-lg-11" style="margin-left: 45px">
 
-            <dt>
-                Imagem Produto
-            </dt>
-            <dd>
-                @*ver se o produto tem imagem ou n, se n tiver adicionar o jpg (semimagem)*@
-                @if (!String.IsNullOrWhiteSpace(Model.Img))
-                {
-                    <img src="data:image/jpeg;base64,@Model.Img" style="width: 250px">
-                }
-                else
-                {
-                    <img src="~/Content/semimagemjpg.jpg" style="width: 250px" class="mr-4" />
-                }
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Categoria)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Categoria.Nome)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Nome)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Nome)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Preco)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Preco)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Quantidade)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Quantidade)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Descricao)
-            </dd>
-        </dl>
-        <p>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    @Html.ActionLink("Comprar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-secondary" })
+            <div class="card mt-4">
+                <img class="card-img-top img-fluid" src="data:image/jpeg;base64,@Model.Img" style="width: 900px; height: 400px">
+                <div class="card-body">
+                    <h2 class="card-title">@Model.Nome</h2>
+                    <h4>R$@Model.Preco</h4>
+                    <button class="btn btn-success">Comprar</button>
                 </div>
+                <!-- /.card -->
+
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        <h5>Detalhes</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>@Model.Descricao</p>
+                    </div>
+                </div>
+                <!-- /.card -->
+
             </div>
-        </p>
+            <!-- /.col-lg-9 -->
+
+        </div>
+
     </div>
-    <div class="card-footer small text-muted">Horario de Alteração @DateTime.Now </div>
 </div>
+

@@ -2017,6 +2017,7 @@
     <Content Include="Views\LoginAdm\Lista.cshtml" />
     <Content Include="Views\LoginAdm\Delete.cshtml" />
     <Content Include="Views\Login\Endereco.cshtml" />
+    <Content Include="Views\Home\_Produto.cshtml" />
     <Content Include="Views\Home\Produto.cshtml" />
     <None Include="Views\Produtoes\index.cshtml" />
     <Content Include="Web.config" />
