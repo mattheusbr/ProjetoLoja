@@ -69,7 +69,6 @@ C:\Users\HOME\source\repos\MasterPc\MasterPc\bin\System.Web.WebPages.Razor.xml
 C:\Users\HOME\source\repos\MasterPc\MasterPc\bin\Newtonsoft.Json.xml
 C:\Users\HOME\source\repos\MasterPc\MasterPc\bin\Antlr3.Runtime.pdb
 C:\Users\HOME\source\repos\MasterPc\MasterPc\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.csprojAssemblyReference.cache
 C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.csproj.CoreCompileInputs.cache
 C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.csproj.CopyComplete
 C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.dll
@@ -687,3 +686,4 @@ E:\Tema\MasterPc-rapido\MasterPc-rapido\MasterPc\obj\Debug\MasterPc.pdb
 E:\Tema\MasterPc-rapido\MasterPc-rapido\MasterPc\obj\Debug\MasterPc.csprojAssemblyReference.cache
 C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.Migrations.Home.resources
 C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.csproj.GenerateResource.cache
+C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.csprojAssemblyReference.cache

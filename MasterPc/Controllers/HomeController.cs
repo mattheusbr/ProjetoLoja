@@ -16,6 +16,7 @@ namespace MasterPc.Controllers
         public ActionResult Index()
         {
             var produtoes = db.Produtoes.Select(x => x).ToList();
+
             return View(produtoes);
         }
 
