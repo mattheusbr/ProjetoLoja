@@ -62,7 +62,8 @@ namespace MasterPc.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
+            ViewBag.GeneroId = new SelectList(
+                db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
             return View(usuario);
         }
         protected override void Dispose(bool disposing)
