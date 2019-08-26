@@ -17,6 +17,14 @@ namespace MasterPc.Controllers
     {
         private HomeContext db = new HomeContext();
 
+
+        public ActionResult Lista()
+        {
+            var usuarios = db.Usuarios.Select(u => u).ToList();
+            return View(usuarios);
+
+        }
+       
         // GET: Login/Create
         public ActionResult Create()
         {
@@ -33,7 +41,7 @@ namespace MasterPc.Controllers
             {
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Produtoes");
+                return RedirectToAction("Lista", "LoginAdm");
             }
 
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
@@ -68,7 +76,9 @@ namespace MasterPc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Nome,GeneroId,Login,CPF,TipoUsuario")] Usuario usuario)
         {
+            //Setar null no campo senha
             ModelState.Where(c => c.Key.Equals(nameof(usuario.Senha))).ToList().ForEach(c => ModelState.Remove(c));
+            //
             if (ModelState.IsValid)
             {
                 UsuariosDAO dao = new UsuariosDAO();
@@ -82,6 +92,32 @@ namespace MasterPc.Controllers
             }
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
             return View(usuario);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Usuario usuario = db.Usuarios.Find(id);
+            if (usuario == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario);
+
+        }
+
+        // POST: LoginAdm/Delete/
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Usuario usuario = db.Usuarios.Find(id);
+            db.Usuarios.Remove(usuario);
+            db.SaveChanges();
+            return RedirectToAction("Lista");
         }
     }
 }

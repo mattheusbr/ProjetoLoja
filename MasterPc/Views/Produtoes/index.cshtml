@@ -1,11 +1,6 @@
 ﻿@model IEnumerable<MasterPc.Models.Produto>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2></h2>
-
+<title>MasterPcAdmin - Criar Produtos</title>
 <p>
     @Html.ActionLink("Incluir Novo Produto", "Create", "Produtos", new { @class = "btn btn-success ml-md-3" })
 </p>
@@ -76,7 +71,8 @@
                                 @item.Quantidade
                             </td>
                             <td>
-                                @item.Descricao.Substring(0, (item.Descricao.Length > 42 ? 42 : item.Descricao.Length))@Html.ActionLink("...", "Details", new { id = item.Id })                              
+                                @*Limitar campo de caracteres para visualizar na tabela*@ 
+                                @item.Descricao.Substring(0, (item.Descricao.Length > 20 ? 20 : item.Descricao.Length))@Html.ActionLink("...", "Details", new { id = item.Id })                              
                             </td>
                             <td>
                                 @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" })

@@ -1,5 +1,6 @@
 ﻿using MasterPc.Filtros;
 using MasterPc.Models;
+using MasterPc.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -32,10 +33,17 @@ namespace MasterPc.Models
         public string Login { get; set; }
 
         [Required]
-        [CustomValidationCPF(ErrorMessage = "CPF inválido")]
+        [CustomValidationCPF(ErrorMessage 
+            = "CPF inválido")]
         public string CPF { get; set; }
 
         public int TipoUsuario { get; set; }
+
+      //  public TipoUsuario TipoUsuario { get; set; }
+
+        public IList<Endereco> Enderecos { get; set; }
+
+        public int EnderecoId { get; set; }
 
     }
 }

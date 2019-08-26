@@ -101,6 +101,7 @@ namespace MasterPc.Controllers
             {
                 if (Request.Files.Count > 0)
                 {
+                    //Converte de inputStream para base64 para salvar no banco
                     HttpPostedFileBase file = Request.Files[0];
                     byte[] buffer = new byte[file.InputStream.Length];
                     file.InputStream.Read(buffer, 0, buffer.Length);

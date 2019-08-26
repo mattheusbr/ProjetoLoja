@@ -221,10 +221,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HomeContext.cs" />
-    <Compile Include="Migrations\201908210117563_hom.cs" />
-    <Compile Include="Migrations\201908210117563_hom.Designer.cs">
-      <DependentUpon>201908210117563_hom.cs</DependentUpon>
+    <Compile Include="Context\HomeContext.cs" />
+    <Compile Include="Migrations\201908221707392_Home.cs" />
+    <Compile Include="Migrations\201908221707392_Home.Designer.cs">
+      <DependentUpon>201908221707392_Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
@@ -241,6 +241,7 @@
   <ItemGroup>
     <Content Include="Content\css\sb-admin.css" />
     <Content Include="Content\css\sb-admin.min.css" />
+    <Content Include="Content\css\pag-produto.css" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
     <Content Include="Content\js\demo\chart-bar-demo.js" />
     <Content Include="Content\js\demo\chart-pie-demo.js" />
@@ -1999,6 +2000,7 @@
     <Content Include="Content\vendor\jquery\jquery.min.map" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\CEP.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -2012,6 +2014,11 @@
     <Content Include="Views\LoginAdm\Create.cshtml" />
     <Content Include="Views\Login\Edit.cshtml" />
     <Content Include="Views\LoginAdm\Edit.cshtml" />
+    <Content Include="Views\LoginAdm\Lista.cshtml" />
+    <Content Include="Views\LoginAdm\Delete.cshtml" />
+    <Content Include="Views\Login\Endereco.cshtml" />
+    <Content Include="Views\Home\_Produto.cshtml" />
+    <Content Include="Views\Home\Produto.cshtml" />
     <None Include="Views\Produtoes\index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -2035,7 +2042,6 @@
     <Content Include="Views\CategoriaProdutoes\Edit.cshtml" />
     <Content Include="Views\CategoriaProdutoes\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Loja.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\Create.cshtml" />
   </ItemGroup>
@@ -2055,8 +2061,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908210117563_hom.resx">
-      <DependentUpon>201908210117563_hom.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908221707392_Home.resx">
+      <DependentUpon>201908221707392_Home.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

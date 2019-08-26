@@ -10,8 +10,8 @@ namespace MasterPc.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Logradouro obrigatório.")]
-        public string Logradouro { get; set; }
+        [Required(ErrorMessage = "Endereco obrigatório.")]
+        public string Rua { get; set; }
 
         [Required(ErrorMessage = "Numero obrigatório.")]
         public int Numero { get; set; }
@@ -27,9 +27,12 @@ namespace MasterPc.Models
 
         //frame que busca CEP no banco do correio
         [Required(ErrorMessage = "CEP obrigatório.")]
-        public string CEP { get; set; }
+        public string cep { get; set; }
 
         [Required(ErrorMessage = "Complemento obrigatório")]
         public string Complemento { get; set; }
+
+        public IList<Usuario> Usuarios { get; set; }
+
     }
 }

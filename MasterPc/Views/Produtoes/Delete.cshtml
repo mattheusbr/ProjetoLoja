@@ -1,8 +1,6 @@
 ﻿@model MasterPc.Models.Produto
 
-@{
-    ViewBag.Title = "Excluir";
-}
+<title>MasterPcAdmin - Deletar Produto</title>
 
 @using (Html.BeginForm())
 {
@@ -13,6 +11,18 @@
         </div>
         <div class="card-body">
             <dl class="dl-horizontal">
+                <dd>
+                    @*ver se o produto tem imagem ou n, se n tiver adicionar o jpg (semimagem)*@
+                    @if (!String.IsNullOrWhiteSpace(Model.Img))
+                    {
+                        <img src="data:image/jpeg;base64,@Model.Img" style="width: 150px">
+                    }
+                    else
+                    {
+                        <img src="~/Content/semimagemjpg.jpg" style="width: 180px" class="mr-4" />
+                    }
+                </dd>
+
                 <dt>
                     @Html.DisplayNameFor(model => model.Categoria)
                 </dt>

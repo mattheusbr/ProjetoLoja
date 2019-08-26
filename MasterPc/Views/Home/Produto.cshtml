@@ -1,0 +1,34 @@
+﻿@model MasterPc.Models.Produto
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-11" style="margin-left: 45px">
+
+            <div class="card mt-4">
+                <img class="card-img-top img-fluid" src="data:image/jpeg;base64,@Model.Img" style="width: 900px; height: 400px">
+                <div class="card-body">
+                    <h2 class="card-title">@Model.Nome</h2>
+                    <h4>R$@Model.Preco</h4>
+                    <button class="btn btn-success">Comprar</button>
+                </div>
+                <!-- /.card -->
+
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        <h5>Detalhes</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>@Model.Descricao</p>
+                    </div>
+                </div>
+                <!-- /.card -->
+
+            </div>
+            <!-- /.col-lg-9 -->
+
+        </div>
+
+    </div>
+</div>
+
