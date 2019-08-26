@@ -222,15 +222,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Context\HomeContext.cs" />
-    <Compile Include="Migrations\201908221707392_Home.cs" />
-    <Compile Include="Migrations\201908221707392_Home.Designer.cs">
-      <DependentUpon>201908221707392_Home.cs</DependentUpon>
+    <Compile Include="Migrations\201908261858255_home.cs" />
+    <Compile Include="Migrations\201908261858255_home.Designer.cs">
+      <DependentUpon>201908261858255_home.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
     <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\DescontoProduto.cs" />
-    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Genero.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Telefone.cs" />
@@ -2016,7 +2015,6 @@
     <Content Include="Views\LoginAdm\Edit.cshtml" />
     <Content Include="Views\LoginAdm\Lista.cshtml" />
     <Content Include="Views\LoginAdm\Delete.cshtml" />
-    <Content Include="Views\Login\Endereco.cshtml" />
     <Content Include="Views\Home\_Produto.cshtml" />
     <Content Include="Views\Home\Produto.cshtml" />
     <None Include="Views\Produtoes\index.cshtml" />
@@ -2061,8 +2059,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908221707392_Home.resx">
-      <DependentUpon>201908221707392_Home.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908261858255_home.resx">
+      <DependentUpon>201908261858255_home.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

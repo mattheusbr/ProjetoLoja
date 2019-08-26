@@ -35,7 +35,7 @@ namespace MasterPc.Controllers
         // POST: Login/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,GeneroId,Login,Senha,CPF,TipoUsuario")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "ID,Nome,GeneroId,Login,Senha,CPF,TipoUsuario,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {

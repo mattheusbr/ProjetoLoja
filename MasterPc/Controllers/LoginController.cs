@@ -45,7 +45,7 @@ namespace MasterPc.Controllers
         // POST: Login/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,GeneroId,Login,Senha,CPF")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "ID,Nome,GeneroId,Login,Senha,CPF,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento")] Usuario usuario)
         {
             //Consulta no banco se o login existe
             if (db.Usuarios.Where(x => x.Login == usuario.Login).Count() > 0)
@@ -59,7 +59,7 @@ namespace MasterPc.Controllers
                 //
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();
-                return RedirectToAction("Endereco");
+                return RedirectToAction("Index");
             }
 
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
@@ -115,26 +115,26 @@ namespace MasterPc.Controllers
 
 
         //===========================Endereço===================================\\
-        [HttpGet]   
-        public ActionResult Endereco()
-        {
-            return View();
-        }
+        //[HttpGet]   
+        //public ActionResult Endereco()
+        //{
+        //    return View();
+        //}
 
-        //Criar endereço
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Endereco ([Bind(Include = "Id,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento ")] Endereco endereco)
-        {
+        ////Criar endereço
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Endereco ([Bind(Include = "Id,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento ")] Endereco endereco)
+        //{
 
-            if (ModelState.IsValid)
-            {
-                db.Enderecos.Add(endereco);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(endereco);
-        }
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Enderecos.Add(endereco);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(endereco);
+        //}
 
 
     }
