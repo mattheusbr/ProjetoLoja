@@ -55,7 +55,7 @@ namespace MasterPc.Controllers
             if (ModelState.IsValid)
             {
                 //Seta como padrão o usuario na tabela
-                usuario.TipoUsuario = (int)TipoUsuario.USUARIO;
+                usuario.TipoUsuario = TipoUsuario.USUARIO;
                 //
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();

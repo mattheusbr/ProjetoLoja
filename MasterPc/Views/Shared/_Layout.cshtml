@@ -96,7 +96,7 @@
             @*Verifica se é um adm e mostra o dropbox do painel de admin*@
             @if (Session.Keys.Cast<String>().Any(c => c == "usuarioLogado"))
             {
-                if ((Session["usuarioLogado"] as Usuario).TipoUsuario == (int)TipoUsuario.ADMINISTRADOR)
+                if ((Session["usuarioLogado"] as Usuario).TipoUsuario == /*(int)*/TipoUsuario.ADMINISTRADOR)
                 {
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

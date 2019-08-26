@@ -686,3 +686,4 @@ E:\Tema\MasterPc-rapido\MasterPc-rapido\MasterPc\obj\Debug\MasterPc.pdb
 E:\Tema\MasterPc-rapido\MasterPc-rapido\MasterPc\obj\Debug\MasterPc.csprojAssemblyReference.cache
 C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.Migrations.home.resources
 C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.csproj.GenerateResource.cache
+C:\Users\HOME\source\repos\MasterPc\MasterPc\obj\Debug\MasterPc.csprojAssemblyReference.cache
