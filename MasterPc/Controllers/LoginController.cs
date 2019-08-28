@@ -32,6 +32,8 @@ namespace MasterPc.Controllers
             }
             else
             {
+                ModelState.AddModelError("", "Login ou Senha incorreto");
+
                 return RedirectToAction("Index");
             }
         }
@@ -45,7 +47,7 @@ namespace MasterPc.Controllers
         // POST: Login/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,GeneroId,Login,Senha,CPF,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "Id,Nome,GeneroId,Login,Senha,CPF,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento,Celular")] Usuario usuario)
         {
             //Consulta no banco se o login existe
             if (db.Usuarios.Where(x => x.Login == usuario.Login).Count() > 0)
@@ -63,7 +65,7 @@ namespace MasterPc.Controllers
             }
 
             ViewBag.GeneroId = new SelectList(
-                db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
+            db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
             return View(usuario);
         }
         protected override void Dispose(bool disposing)

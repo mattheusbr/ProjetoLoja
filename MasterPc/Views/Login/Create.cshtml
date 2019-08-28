@@ -55,13 +55,21 @@
                             @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control ", maxlength = "11" } })
+                            @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         @*================================================>ENDEREÇO<=======================================================================*@
 
         <div class="card card-register mx-auto mt-5 ">
-            <div class="card-header text-center"><h5>Cadastrar uma Endereço</h5></div>
+            <div class="card-header text-center"><h5>Cadastrar um Endereço</h5></div>
             <div class="card-body">
 
                 <div class="form-group">

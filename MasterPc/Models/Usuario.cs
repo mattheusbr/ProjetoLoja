@@ -11,7 +11,7 @@ namespace MasterPc.Models
 {                                                                                                                  
     public class Usuario
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Nome é obrigatório.")]
         public string Nome { get; set; }
@@ -33,7 +33,10 @@ namespace MasterPc.Models
         [CustomValidationCPF(ErrorMessage  = "CPF inválido")]
         public string CPF { get; set; }
 
+        public string Celular { get; set; }
+
         public TipoUsuario TipoUsuario { get; set; }
+
 
         //===============================================ENDERÇO===============================================\\
         [Required(ErrorMessage = "Endereco obrigatório.")]

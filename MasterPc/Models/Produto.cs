@@ -9,7 +9,6 @@ namespace MasterPc.Models
 {
     public class Produto
     {
-        [Required]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "O nome do produto é obrigatório."), StringLength(30)]
@@ -22,7 +21,7 @@ namespace MasterPc.Models
         public int CategoriaId { get; set; }
 
         [Required(ErrorMessage = "O preço do produto é obrigatório.")]
-        public double Preco { get; set; }
+        public decimal Preco { get; set; }
 
         [Required(ErrorMessage = "A quantidade é obrigatório.")]
         public int Quantidade { get; set; }
@@ -31,6 +30,9 @@ namespace MasterPc.Models
         public string Descricao { get; set; }
 
         public string Img { get; set; }
+
+        //public virtual ICollection<ItemProduto> ItemProdutos { get; set; }
+
 
     }
 }

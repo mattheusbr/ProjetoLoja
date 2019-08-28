@@ -209,6 +209,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarinhoController.cs" />
     <Compile Include="Controllers\CategoriaProdutoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginAdmController.cs" />
@@ -222,13 +223,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Context\HomeContext.cs" />
-    <Compile Include="Migrations\201908261858255_home.cs" />
-    <Compile Include="Migrations\201908261858255_home.Designer.cs">
-      <DependentUpon>201908261858255_home.cs</DependentUpon>
+    <Compile Include="Migrations\201908281630009_home.cs" />
+    <Compile Include="Migrations\201908281630009_home.Designer.cs">
+      <DependentUpon>201908281630009_home.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
-    <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\DescontoProduto.cs" />
     <Compile Include="Models\Genero.cs" />
     <Compile Include="Models\Produto.cs" />
@@ -241,6 +241,8 @@
     <Content Include="Content\css\sb-admin.css" />
     <Content Include="Content\css\sb-admin.min.css" />
     <Content Include="Content\css\pag-produto.css" />
+    <Content Include="Content\img\01.png" />
+    <Content Include="Content\img\02.jpg" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
     <Content Include="Content\js\demo\chart-bar-demo.js" />
     <Content Include="Content\js\demo\chart-pie-demo.js" />
@@ -2001,6 +2003,7 @@
     <Content Include="Erros\404.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\CEP.js" />
+    <Content Include="Scripts\Mascara.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -2046,6 +2049,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Carinho\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2060,8 +2064,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908261858255_home.resx">
-      <DependentUpon>201908261858255_home.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908281630009_home.resx">
+      <DependentUpon>201908281630009_home.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
