@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace MasterPc.Controllers
 {
-    //[AutorizacaoFilter(Roles = new TipoUsuario[] { TipoUsuario.ADMINISTRADOR })]
+    [AutorizacaoFilter(Roles = new TipoUsuario[] { TipoUsuario.ADMINISTRADOR })]
     public class LoginAdmController : Controller
     {
         private HomeContext db = new HomeContext();

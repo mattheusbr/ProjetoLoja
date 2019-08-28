@@ -52,7 +52,7 @@ namespace MasterPc.Migrations
                         Senha = c.String(nullable: false, maxLength: 30),
                         Login = c.String(nullable: false),
                         CPF = c.String(nullable: false),
-                        Celular = c.String(),
+                        Celular = c.String(nullable: false),
                         TipoUsuario = c.Int(nullable: false),
                         Rua = c.String(nullable: false),
                         Numero = c.Int(nullable: false),

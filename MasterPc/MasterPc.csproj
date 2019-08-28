@@ -209,7 +209,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CarinhoController.cs" />
     <Compile Include="Controllers\CategoriaProdutoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginAdmController.cs" />
@@ -223,16 +222,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Context\HomeContext.cs" />
-    <Compile Include="Migrations\201908281630009_home.cs" />
-    <Compile Include="Migrations\201908281630009_home.Designer.cs">
-      <DependentUpon>201908281630009_home.cs</DependentUpon>
+    <Compile Include="Migrations\201908281748172_home.cs" />
+    <Compile Include="Migrations\201908281748172_home.Designer.cs">
+      <DependentUpon>201908281748172_home.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
-    <Compile Include="Models\DescontoProduto.cs" />
     <Compile Include="Models\Genero.cs" />
     <Compile Include="Models\Produto.cs" />
-    <Compile Include="Models\Telefone.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\TipoUsuario.cs" />
@@ -2049,7 +2046,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Carinho\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2064,8 +2060,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908281630009_home.resx">
-      <DependentUpon>201908281630009_home.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908281748172_home.resx">
+      <DependentUpon>201908281748172_home.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

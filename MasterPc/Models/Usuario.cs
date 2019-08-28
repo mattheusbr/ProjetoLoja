@@ -11,14 +11,14 @@ namespace MasterPc.Models
 {                                                                                                                  
     public class Usuario
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Required(ErrorMessage = "Nome é obrigatório.")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "Genero é obrigatório.")]
         public virtual Genero Genero { get; set; }
 
+        [Required]
         public int GeneroId { get; set; }
 
 
@@ -33,6 +33,7 @@ namespace MasterPc.Models
         [CustomValidationCPF(ErrorMessage  = "CPF inválido")]
         public string CPF { get; set; }
 
+        [Required(ErrorMessage = "Login é obrigatório.")]
         public string Celular { get; set; }
 
         public TipoUsuario TipoUsuario { get; set; }

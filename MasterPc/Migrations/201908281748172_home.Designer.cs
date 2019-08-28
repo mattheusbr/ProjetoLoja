@@ -13,7 +13,7 @@ namespace MasterPc.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201908281630009_home"; }
+            get { return "201908281748172_home"; }
         }
         
         string IMigrationMetadata.Source
