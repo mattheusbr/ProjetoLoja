@@ -22,6 +22,7 @@ namespace MasterPc.Controllers
         {
             var produtoes = db.Produtoes.Select(x => x).ToList();
             
+            
             return View(produtoes);
         }
 
@@ -91,8 +92,6 @@ namespace MasterPc.Controllers
         }
 
         // POST: Produtoes/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Nome,CategoriaId,Preco,Quantidade,Descricao")] Produto produto)

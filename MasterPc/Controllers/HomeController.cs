@@ -12,7 +12,9 @@ namespace MasterPc.Controllers
     {
         HomeContext db = new HomeContext();
 
-        //voltar lista de produtos para a view
+        //===Mostrar os produtos no catalogo===
+
+        //--Catalogo Inicial
         public ActionResult Index()
         {
             var produtoes = db.Produtoes.Select(x => x).ToList();
@@ -20,8 +22,16 @@ namespace MasterPc.Controllers
             return View(produtoes);
         }
 
+        //===Categorias===
+        public ActionResult Categoria(int id)
+        {
+            var categorias = db.Produtoes.Select(x => x).Where(x => x.CategoriaId == id).ToList();
+
+            return View(categorias);
+        }
 
 
+        //Mostrar Produto detalhado para comprar 
         public ActionResult Produto(int? id)
         {
             if (id == null)
@@ -36,48 +46,5 @@ namespace MasterPc.Controllers
             return View(produto);
         }
 
-        //public ActionResult AdicionarCarrinho(int id)
-        //{
-        //    // Ao invés de colocar uma lista de ítens de Design, vamos colocar
-        //    // Um objeto da entidade Pedido, que já possui List<ItemDesign>.
-        //    // List<ItemDesign> carrinho = Session["Carrinho"] != null ? (List<ItemDesign>)Session["Carrinho"] : new List<ItemDesign>();
-        //    Pedido carrinho = Session["Carrinho"] != null ? (Pedido)Session["Carrinho"] : new Pedido();
-
-        //    var produto = db.Produtoes.Find(id);
-
-        //    if (produto != null)
-        //    {
-        //        var ItemProduto = new ItemProduto();
-        //        ItemProduto.Produto = produto;
-        //        ItemProduto.Qtd = 1;
-        //        // Esta linha não precisa. O EF é espertinho e preenche pra você.
-        //        // itemDesign.IdDesign = design.IdDesign;
-
-        //        if (carrinho.ItemProdutos.FirstOrDefault(x => x.ProdutoId == produto.Id) != null)
-        //        {
-        //            carrinho.ItemProdutos.FirstOrDefault(x => x.ProdutoId == produto.Id).Qtd += 1;
-        //        }
-
-        //        else
-        //        {
-        //            carrinho.ItemProdutos.Add(ItemProduto);
-        //        }
-
-        //        // Aqui podemos fazer o cálculo do valor
-
-        //        carrinho.ValorTotal = carrinho.ItemProdutos.Select(i => i.Produto).Sum(d => d.Preco);
-
-        //        Session["Carrinho"] = carrinho;
-        //    }
-
-        //    return RedirectToAction("Carrinho");
-        //}
-
-        //public ActionResult Carrinho()
-        //{
-        //    Pedido carrinho = Session["Carrinho"] != null ? (Pedido)Session["Carrinho"] : new Pedido();
-
-        //    return View(carrinho);
-        //}
     }
 }
