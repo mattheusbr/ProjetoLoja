@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MasterPc.Controllers
 {
@@ -119,29 +120,13 @@ namespace MasterPc.Controllers
             return View(usuario);
         }
 
-
-        //===========================Endereço===================================\\
-        //[HttpGet]   
-        //public ActionResult Endereco()
-        //{
-        //    return View();
-        //}
-
-        ////Criar endereço
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Endereco ([Bind(Include = "Id,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento ")] Endereco endereco)
-        //{
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Enderecos.Add(endereco);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(endereco);
-        //}
-
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            HttpContext.Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
+  
 
     }
 }

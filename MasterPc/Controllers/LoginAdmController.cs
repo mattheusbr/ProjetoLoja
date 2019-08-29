@@ -37,6 +37,15 @@ namespace MasterPc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Nome,GeneroId,Login,Senha,CPF,TipoUsuario,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento")] Usuario usuario)
         {
+            //Consulta no banco se o login existe
+            if (db.Usuarios.Where(x => x.Login == usuario.Login).Count() > 0)
+            {
+                ModelState.AddModelError("Login", "Login existente.");
+            }
+            if (db.Usuarios.Where(x => x.CPF == usuario.CPF).Count() > 0)
+            {
+                ModelState.AddModelError("CPF", "CPF já cadastrado");
+            }
             if (ModelState.IsValid)
             {
                 db.Usuarios.Add(usuario);

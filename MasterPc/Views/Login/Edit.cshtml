@@ -3,8 +3,8 @@
 
 <title>MasterPcAdmin - Editar Perfil</title>
 
-<div class="card mb-3">
-    <div class="card-header">
+<div class="card card-register mx-auto mt-5">
+    <div class="card-header text-center">
         &nbsp;
     </div>
     <div class="card-body">
@@ -43,12 +43,13 @@
 
                 @*Criar metodo de alterar senha*@
                 @*<div class="form-group">
-                    @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
+                        @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -57,86 +58,88 @@
                         @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Salvar" class="btn btn-success" />
-                        <a align="bottom" href="~/Home/Index" class="btn btn-primary">Voltar</a>
-                    </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+@*================================================>ENDEREÇO<=======================================================================*@
+
+<div class="card card-register mx-auto mt-5 mb-5">
+    <div class="card-header text-center"><h5>Editar Endereço</h5></div>
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label for="cep" style="margin-left: 16px">CEP</label>
+                <input id="cep" name="cep" placeholder="Apenas números" class="form-control control-label col-md-5" required="" value="@ViewData.Model.cep" style="margin-left: 16px" type="search" maxlength="8" pattern="[0-9]+$">
+            </div>
+
+
+            <div class="col-md-0">
+                <button id="button" style="margin-left: 16px" type="button" class="btn btn-primary button" onclick="pesquisacep(cep.value)">Pesquisar</button>
+            </div>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Rua, "Endereço", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Rua, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Rua, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            @*================================================>ENDEREÇO<=======================================================================*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-            <div class="card card-register mx-auto mt-5 ">
-                <div class="card-header text-center"><h5>Cadastrar uma Endereço</h5></div>
-                <div class="card-body">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label for="cep" style="margin-left: 16px">CEP</label>
-                        <input id="cep" name="cep" placeholder="Apenas números" class="form-control control-label col-md-5" required="" value="@ViewData.Model.cep" style="margin-left: 16px" type="search" maxlength="8" pattern="[0-9]+$">
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
+            <div class="form-group">
+                @Html.LabelFor(model => model.Municipio, "Municipio", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-                    <div class="col-md-0">
-                        <button id="button" style="margin-left: 16px" type="button" class="btn btn-primary button" onclick="pesquisacep(cep.value)">Pesquisar</button>
-                    </div>
-
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Rua, "Endereço", htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Rua, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Rua, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Municipio, "Municipio", htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Cadastrar" class="btn btn-primary btn-block" />
-                        </div>
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
                 </div>
             </div>
         }
     </div>
-    <div class="card-footer small text-muted">Horario de Alteração @DateTime.Now </div>
+</div>
+
+<div class="card card-register mx-auto mt-5 ">
+    <div class="card-body">
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-success" />
+                <a align="bottom" href="~/Home/Index" class="btn btn-primary">Voltar</a>
+            </div>
+        </div>
+    </div>
 </div>
