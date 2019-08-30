@@ -15,6 +15,8 @@ namespace MasterPc.Controllers
     public class LoginController : Controller
     {
         private HomeContext db = new HomeContext();
+        private UsuariosDAO dao = new UsuariosDAO();
+
 
         //
         // GET: /Login/
@@ -47,7 +49,7 @@ namespace MasterPc.Controllers
         // POST: Login/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,GeneroId,Login,Senha,CPF,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento,Celular")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "Id,Nome,GeneroId,Login,Senha,CPF,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento,Celular")] Usuario usuario)
         {
             //Consulta no banco se o login existe
             if (db.Usuarios.Where(x => x.Login == usuario.Login).Count() > 0)
@@ -99,21 +101,17 @@ namespace MasterPc.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,GeneroId,Login,CPF,TipoUsuario")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id,Nome,GeneroId,Login,CPF,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento,Celular")] Usuario usuario)
         {
             //Remove a necessidade de editar a senha
             ModelState.Where(c => c.Key.Equals(nameof(usuario.Senha))).ToList().ForEach(c => ModelState.Remove(c));
 
             if (ModelState.IsValid)
             {
-                UsuariosDAO dao = new UsuariosDAO();
-                Usuario up = dao.BuscaPorId(usuario.ID);
+                Usuario up = dao.BuscaPorId(usuario.Id);
                 if (string.IsNullOrWhiteSpace(usuario.Senha))
                 usuario.Senha = up.Senha;
-
-                //Salva
-                db.Entry(usuario).State = EntityState.Modified;
-                db.SaveChanges();
+                dao.Atualiza(usuario);
                 return RedirectToAction("Index", "Home");
             }
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);

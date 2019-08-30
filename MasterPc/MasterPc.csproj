@@ -222,9 +222,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Context\HomeContext.cs" />
-    <Compile Include="Migrations\201908281748172_home.cs" />
-    <Compile Include="Migrations\201908281748172_home.Designer.cs">
-      <DependentUpon>201908281748172_home.cs</DependentUpon>
+    <Compile Include="Migrations\201908292232205_Projeto.cs" />
+    <Compile Include="Migrations\201908292232205_Projeto.Designer.cs">
+      <DependentUpon>201908292232205_Projeto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
@@ -2059,8 +2059,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908281748172_home.resx">
-      <DependentUpon>201908281748172_home.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908292232205_Projeto.resx">
+      <DependentUpon>201908292232205_Projeto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

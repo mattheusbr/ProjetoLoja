@@ -56,8 +56,8 @@
                     @*Se usuario estiver logado aparece button edit*@
                     @if (Session.Keys.Cast<String>().Any(c => c == "usuarioLogado"))
                     {
-                        <a class="dropdown-item" href="@Url.Action("Edit", "Login", new { id = (Session["usuarioLogado"] as Usuario).ID })">Perfil</a>
-                        <a class="dropdown-item" href="@Url.Action("Logout", "Login", new { id = (Session["usuarioLogado"] as Usuario).ID })">Sair</a>
+                        <a class="dropdown-item" href="@Url.Action("Edit", "Login", new { id = (Session["usuarioLogado"] as Usuario).Id })">Perfil</a>
+                        <a class="dropdown-item" href="@Url.Action("Logout", "Login", new { id = (Session["usuarioLogado"] as Usuario).Id })">Sair</a>
 
                     }
                     else
@@ -119,7 +119,7 @@
                             <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Manejo de Contas</h6>
                             <a class="dropdown-item" href="~/LoginAdm/Create">Cadastro</a>
-                            <a class="dropdown-item" href="@Url.Action("Edit", "LoginAdm", new { id = (Session["usuarioLogado"] as Usuario).ID })">Editar</a>
+                            <a class="dropdown-item" href="@Url.Action("Edit", "LoginAdm", new { id = (Session["usuarioLogado"] as Usuario).Id })">Editar</a>
                             <a class="dropdown-item" href="~/LoginAdm/Lista">Lista de Usuarios</a>
 
                         </div>

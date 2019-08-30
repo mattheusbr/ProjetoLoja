@@ -1,6 +1,7 @@
 ﻿using MasterPc.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -37,7 +38,7 @@ namespace MasterPc.DAO
         {
             using (var contexto = new HomeContext())
             {
-                contexto.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
+                contexto.Entry(usuario).State = EntityState.Modified;
                 contexto.SaveChanges();
             }
         }
