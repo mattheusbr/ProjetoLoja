@@ -28,7 +28,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-        <a class="navbar-brand mr-1" href="~/Home/Index">MasterPc</a>
+        <a class="navbar-brand mr-1" href="~/Loja/Catalogo">MasterPc</a>
 
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
@@ -56,13 +56,13 @@
                     @*Se usuario estiver logado aparece button edit*@
                     @if (Session.Keys.Cast<String>().Any(c => c == "usuarioLogado"))
                     {
-                        <a class="dropdown-item" href="@Url.Action("Edit", "Login", new { id = (Session["usuarioLogado"] as Usuario).Id })">Perfil</a>
+                        <a class="dropdown-item" href="@Url.Action("Editar", "Usuarios", new { id = (Session["usuarioLogado"] as Usuario).Id })">Perfil</a>
                         <a class="dropdown-item" href="@Url.Action("Logout", "Login", new { id = (Session["usuarioLogado"] as Usuario).Id })">Sair</a>
 
                     }
                     else
                     {
-                        <a class="dropdown-item" href="~/Login/Index">Login</a>
+                        <a class="dropdown-item" href="~/Login/Logar">Login</a>
                     }
 
                 </div>
@@ -88,13 +88,6 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                     <h6 class="dropdown-header">Login Screens:</h6>
-                    <a class="dropdown-item" href="login.html">Login</a>
-                    <a class="dropdown-item" href="register.html">Register</a>
-                    <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="dropdown-header">Other Pages:</h6>
-                    <a class="dropdown-item" href="404.html">404 Page</a>
-                    <a class="dropdown-item" href="blank.html">Blank Page</a>
                 </div>
             </li>
 
@@ -110,17 +103,17 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                             <h6 class="dropdown-header">Produto</h6>
-                            <a class="dropdown-item" href="~/Produtoes/Create">Cadastro</a>
-                            <a class="dropdown-item" href="~/Produtoes/index">Listar</a>
+                            <a class="dropdown-item" href="~/Produtos/Criar">Cadastro</a>
+                            <a class="dropdown-item" href="~/Produtos/Listar">Listar</a>
                             <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Categoria</h6>
-                            <a class="dropdown-item" href="~/CategoriaProdutoes/Create">Cadastro</a>
-                            <a class="dropdown-item" href="~/CategoriaProdutoes/Index">Listar</a>
+                            <a class="dropdown-item" href="~/Categoria/Criar">Cadastro</a>
+                            <a class="dropdown-item" href="~/Categoria/Listar">Listar</a>
                             <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Manejo de Contas</h6>
-                            <a class="dropdown-item" href="~/LoginAdm/Create">Cadastro</a>
-                            <a class="dropdown-item" href="@Url.Action("Edit", "LoginAdm", new { id = (Session["usuarioLogado"] as Usuario).Id })">Editar</a>
-                            <a class="dropdown-item" href="~/LoginAdm/Lista">Lista de Usuarios</a>
+                            <a class="dropdown-item" href="~/Admin/Usuario/Criar">Cadastro</a>
+                            <a class="dropdown-item" href="@Url.Action("Editar", "UsuariosAdm", new { id = (Session["usuarioLogado"] as Usuario).Id })">Editar</a>
+                            <a class="dropdown-item" href="~/Admin/Usuario/Listar">Lista de Usuarios</a>
 
                         </div>
                     </li>
