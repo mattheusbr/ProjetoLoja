@@ -2015,7 +2015,7 @@
     <Content Include="Views\Login\Logar.cshtml" />
     <Content Include="Views\Loja\Catalogo.cshtml" />
     <Content Include="Views\Loja\ListarCategoria.cshtml" />
-    <Content Include="Views\Loja\ProdutoDetalhes.cshtml" />
+    <Content Include="Views\Loja\ProdutoDetalhar.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2044,6 +2044,7 @@
     <Content Include="Views\CategoriaProdutos\Criar.cshtml" />
     <Content Include="Views\CategoriaProdutos\Editar.cshtml" />
     <Content Include="Views\CategoriaProdutos\Deletar.cshtml" />
+    <Content Include="Views\Loja\Compra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

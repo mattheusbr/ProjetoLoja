@@ -29,7 +29,6 @@ namespace MasterPc.Controllers
         }
 
         //Mostrar Produto detalhado para comprar 
-        [Route ("Produto/{id}")]
         public ActionResult ProdutoDetalhar(int? id)
         {
             if (id == null)
@@ -43,5 +42,12 @@ namespace MasterPc.Controllers
             }
             return View(produto);
         }
+
+        [Route ("Compra/Sucesso")]
+        public ActionResult Compra()
+        {
+            return View();
+        }
+
     }
 }

@@ -55,7 +55,7 @@
                                     var produtosDaPagina = Model.Skip(pagina * TAMANHO_PAGINA).Take(TAMANHO_PAGINA);
                                 }
 
-                                @foreach (var produto in produtosDaPagina)
+                                @foreach (var produto  in produtosDaPagina)
                                 {
                                     <div class="col-lg-4 col-md-6 mb-4">
                                         <div class="card h-100">
@@ -79,7 +79,7 @@
                                                 <p class="card-text">@produto.Descricao</p>
                                             </div>
                                             <div class="card-footer">
-                                                @Html.ActionLink("ProdutoDetalhar", "Loja", new { Id = produto.Id }, new { @class = "btn btn-sm btn-secondary " })
+                                                @Html.ActionLink("Produo", "ProdutoDetalhar", new { Id = produto.Id }, new { @class = "btn btn-sm btn-secondary " })
                                             </div>
                                         </div>
                                     </div>
