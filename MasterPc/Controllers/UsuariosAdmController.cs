@@ -51,7 +51,7 @@ namespace MasterPc.Controllers
             if (ModelState.IsValid)
             {
                 dao.Adiciona(usuario);
-                return RedirectToAction("Lista", "LoginAdm");
+                return RedirectToAction("Listar", "UsuariosAdm");
             }
 
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);

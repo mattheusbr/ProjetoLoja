@@ -6,11 +6,13 @@
         <div class="col-lg-11" style="margin-left: 45px">
 
             <div class="card mt-4">
-                <img class="card-img-top img-fluid" src="data:image/jpeg;base64,@Model.Img" style="width: 900px; height: 400px">
+                <img class="card-img-top img-fluid" src="data:image/jpeg;base64,@Model.Img" style="width: 1000px; height: 400px">
                 <div class="card-body">
                     <h2 class="card-title">@Model.Nome</h2>
-                    <h4>R$@Model.Preco</h4>
-                    <button class="btn btn-success">Comprar</button>
+                    <h4 style="color: green">R$@Model.Preco</h4>
+                    <a align="bottom" href="~/Compra/Sucesso" class="btn btn-success">Comprar</a>
+
+
                 </div>
                 <!-- /.card -->
 

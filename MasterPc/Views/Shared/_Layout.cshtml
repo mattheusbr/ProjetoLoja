@@ -30,6 +30,7 @@
 
         <a class="navbar-brand mr-1" href="~/Loja/Catalogo">MasterPc</a>
 
+
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
         </button>
@@ -37,12 +38,12 @@
         <!-- Navbar Search -->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Search" aria-describedby="basic-addon2">
+                @*<input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="button">
                         <i class="fas fa-search"></i>
                     </button>
-                </div>
+                </div>*@
             </div>
         </form>
 
@@ -86,8 +87,12 @@
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Categoria</span>
                 </a>
+
+
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <h6 class="dropdown-header">Login Screens:</h6>
+                    @*<h6 class="dropdown-header">Login Screens:</h6>*@
+                    <a class="dropdown-item" href="~/Produtos/Categoria/1002">Processador</a>
+                    <a class="dropdown-item" href="~/Produtos/Categoria/1003">Placa de Video</a>
                 </div>
             </li>
 
@@ -107,7 +112,7 @@
                             <a class="dropdown-item" href="~/Produtos/Listar">Listar</a>
                             <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Categoria</h6>
-                            <a class="dropdown-item" href="~/Categoria/Criar">Cadastro</a>
+                            <a class="dropdown-item" href="~/CategoriaProdutos/Criar">Cadastro</a>
                             <a class="dropdown-item" href="~/Categoria/Listar">Listar</a>
                             <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Manejo de Contas</h6>

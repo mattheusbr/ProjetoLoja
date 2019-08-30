@@ -10,13 +10,12 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace MasterPc.Controllers
-{
+{    
     public class UsuariosController : Controller
     {
         private HomeContext db = new HomeContext();
         private UsuariosDAO dao = new UsuariosDAO();
 
-        [Route("Login/Cadastrar")]
         public ActionResult Criar()
         {
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario");
@@ -43,7 +42,7 @@ namespace MasterPc.Controllers
                 usuario.TipoUsuario = TipoUsuario.USUARIO;
                 //
                 dao.Adiciona(usuario);
-                return RedirectToAction("Index");
+                return RedirectToAction("Logar", "Login");
             }
 
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
