@@ -2,7 +2,7 @@
 
 <title>MasterPcAdmin - Deletar Produto</title>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(("Deletar", "UsuariosAdm", FormMethod.Post)))
 {
     @Html.AntiForgeryToken()
     <div class="card mb-3">

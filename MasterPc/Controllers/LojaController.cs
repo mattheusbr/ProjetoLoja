@@ -1,4 +1,5 @@
-﻿using MasterPc.Models;
+﻿using MasterPc.Filtros;
+using MasterPc.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace MasterPc.Controllers
             }
             return View(produto);
         }
-
+        [AutorizacaoFilter]
         [Route ("Compra/Sucesso")]
         public ActionResult Compra()
         {

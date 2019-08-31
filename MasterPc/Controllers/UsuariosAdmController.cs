@@ -35,8 +35,9 @@ namespace MasterPc.Controllers
         }
 
         [HttpPost]
+        [Route("Admin/Usuario/Criar")]
         [ValidateAntiForgeryToken]
-        public ActionResult Criar([Bind(Include = "Id,Nome,GeneroId,Login,Senha,CPF,TipoUsuario,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento")] Usuario usuario)
+        public ActionResult Criar([Bind(Include = "Id,Nome,GeneroId,Login,Senha,CPF,TipoUsuario,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento,Celular")] Usuario usuario)
         {
             //Consulta no banco se o login existe
             if (db.Usuarios.Where(x => x.Login == usuario.Login).Count() > 0)
@@ -77,10 +78,24 @@ namespace MasterPc.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Admin/Usuario/Editar/{id}")]
         public ActionResult Editar([Bind(Include = "Id,Nome,GeneroId,Login,CPF,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento,Celular,TipoUsuario")] Usuario usuario)
         {
             //Remove a necessidade de editar a senha
             ModelState.Where(c => c.Key.Equals(nameof(usuario.Senha))).ToList().ForEach(c => ModelState.Remove(c));
+           
+            //Fazer o sistema que compara o login dele com o banco menos com ele mesmo
+            //if (db.Usuarios.Where(x => x.Login == usuario.Login).Count() > 0)
+            //{
+            //    ModelState.AddModelError("Login", "Login existente.");
+            //}
+
+
+            //Fazer o sistema que compara o cpf dele com o banco menos com ele mesmo
+            //if (db.Usuarios.Where(x => x.CPF == usuario.CPF).Count() > 0)
+            //{
+            //    ModelState.AddModelError("CPF", "CPF já cadastrado");
+            //}
 
             if (ModelState.IsValid)
             {
@@ -89,7 +104,7 @@ namespace MasterPc.Controllers
                 usuario.Senha = up.Senha;
 
                 dao.Atualiza(usuario);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Listar");
             }
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
             return View(usuario);
@@ -118,7 +133,7 @@ namespace MasterPc.Controllers
             Usuario usuario = db.Usuarios.Find(id);
             db.Usuarios.Remove(usuario);
             db.SaveChanges();
-            return RedirectToAction("Lista");
+            return RedirectToAction("Listar");
         }
 
         //=========================================\\

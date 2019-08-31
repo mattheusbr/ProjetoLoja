@@ -12,7 +12,6 @@ namespace MasterPc.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "O nome do produto é obrigatório."), StringLength(30)]
-        [DisplayName("Nome do Produto")]
         public string Nome { get; set; }
 
         public virtual CategoriaProduto Categoria { get; set; }
@@ -30,9 +29,6 @@ namespace MasterPc.Models
         public string Descricao { get; set; }
 
         public string Img { get; set; }
-
-        //public virtual ICollection<ItemProduto> ItemProdutos { get; set; }
-
 
     }
 }

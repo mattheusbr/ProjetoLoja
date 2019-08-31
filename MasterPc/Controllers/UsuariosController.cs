@@ -50,7 +50,6 @@ namespace MasterPc.Controllers
         }
 
         [AutorizacaoFilter]
-        [Route("Perfil/Editar/{id}")]
         public ActionResult Editar(int? id)
         {
             if (id == null)
@@ -74,13 +73,25 @@ namespace MasterPc.Controllers
             //Remove a necessidade de editar a senha
             ModelState.Where(c => c.Key.Equals(nameof(usuario.Senha))).ToList().ForEach(c => ModelState.Remove(c));
 
+            //Fazer o sistema que compara o login dele com o banco menos com ele mesmo
+            //if (db.Usuarios.Where(x => x.Login == usuario.Login).Count() > 0)
+            //{
+            //    ModelState.AddModelError("Login", "Login existente.");
+            //}
+
+            //Fazer o sistema que compara o cpf dele com o banco menos com ele mesmo
+            //if (db.Usuarios.Where(x => x.CPF == usuario.CPF).Count() > 0)
+            //{
+            //    ModelState.AddModelError("CPF", "CPF já cadastrado");
+            //}
+
             if (ModelState.IsValid)
             {
                 Usuario up = dao.BuscaPorId(usuario.Id);
                 if (string.IsNullOrWhiteSpace(usuario.Senha))
                     usuario.Senha = up.Senha;
                 dao.Atualiza(usuario);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Catalogo", "Loja");
             }
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
             return View(usuario);

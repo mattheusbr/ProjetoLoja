@@ -33,7 +33,7 @@ namespace MasterPc.Models
         [CustomValidationCPF(ErrorMessage  = "CPF inválido")]
         public string CPF { get; set; }
 
-        [Required(ErrorMessage = "Login é obrigatório.")]
+        [Required(ErrorMessage = "Celular é obrigatório.")]
         public string Celular { get; set; }
 
         public TipoUsuario TipoUsuario { get; set; }
@@ -55,7 +55,6 @@ namespace MasterPc.Models
         [Required(ErrorMessage = "Estado obrigatório.")]
         public string Estado { get; set; }
 
-        //frame que busca CEP no banco do correio
         [Required(ErrorMessage = "CEP obrigatório.")]
         public string cep { get; set; }
 

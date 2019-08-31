@@ -1,11 +1,11 @@
 ﻿@model MasterPc.Models.Usuario
 @using MasterPc.Types
 
-<title>MasterPcAdmin - Cadastro Usuario </title>
+<title>MasterPcAdmin - Cadastro conta </title>
 
 <body class="bg-light">
 
-    @using (Html.BeginForm("Create", "LoginAdm", FormMethod.Post))
+    @using (Html.BeginForm(("Criar", "UsuariosAdm", FormMethod.Post)))
     {
 
         @Html.AntiForgeryToken()
@@ -57,6 +57,14 @@
                     </div>
 
                     <div class="form-group">
+                        @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control ", maxlength = "11" } })
+                            @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         @Html.Label("Tipo de Usuario", htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-10">
                             @Html.DropDownList("TipoUsuario",
@@ -69,14 +77,14 @@
                             @Html.ValidationMessageFor(model => model.TipoUsuario, "", new { @class = "text-danger" })
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
-
         @*================================================>ENDEREÇO<=======================================================================*@
 
         <div class="card card-register mx-auto mt-5 ">
-            <div class="card-header text-center"><h5>Cadastrar uma Endereço</h5></div>
+            <div class="card-header text-center"><h5>Cadastrar um Endereço</h5></div>
             <div class="card-body">
 
                 <div class="form-group">
@@ -133,7 +141,7 @@
                     @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-4" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
@@ -143,9 +151,8 @@
                 </div>
             </div>
         </div>
+
     }
 </body>
 
 <script src="~/Scripts/CEP.js"></script>
-
-

@@ -9,14 +9,13 @@
 
     <div class="card card-register mx-auto mt-5">
         <div class="card-header text-center">
-            &nbsp;
+            Editar Perfil
         </div>
         <div class="card-body">
 
 
             <div class="form-horizontal">
-                <h4>Editar Perfil</h4>
-                <hr />
+
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -142,7 +141,7 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Salvar" class="btn btn-success" />
-                    <a align="bottom" href="~/Home/Index" class="btn btn-primary">Voltar</a>
+                    <a align="bottom" href="~/Loja/Catalogo" class="btn btn-primary">Voltar</a>
                 </div>
             </div>
         </div>

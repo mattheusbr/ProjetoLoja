@@ -6,29 +6,49 @@
         <div class="col-lg-11" style="margin-left: 45px">
 
             <div class="card mt-4">
-                <img class="card-img-top img-fluid" src="data:image/jpeg;base64,@Model.Img" style="width: 1000px; height: 400px">
+                <img class="card-img-top img-fluid" src="data:image/jpeg;base64,@Model.Img" style="width: 1000px; height: 400px" alt="Produto: @Model.Nome">
+                <div class="card" style="margin-top: 0.3px"></div>
+
                 <div class="card-body">
                     <h2 class="card-title">@Model.Nome</h2>
                     <h4 style="color: green">R$@Model.Preco</h4>
-                    <a align="bottom" href="~/Compra/Sucesso" class="btn btn-success">Comprar</a>
+                    <div style="float: right">
+                        @if (Model.Quantidade > 0)
+                        {
+                            <h5>Quantidade: @Model.Quantidade</h5>
+                        }
+                        else
+                        {
+                            <h5>Produto Indisponivel</h5>
+                        }
+                    </div>
 
+                    <div>
+                        @if (Model.Quantidade > 0)
+                        {
+                            <a align="bottom" href="~/Compra/Sucesso" class="btn btn-success">Comprar</a>
+                        }
+                        else
+                        {
+                            <a align="bottom" href="~/Compra/Sucesso" class="btn btn-success disabled">Comprar</a>
+                        }
+                    </div>
+
+                    <div style="float: right">
+                        <h5>Categoria: @Model.Categoria.Nome</h5>
+                    </div>
 
                 </div>
-                <!-- /.card -->
 
-                <div class="card card-outline-secondary my-4">
+                <div class="card card-outline-secondary ">
                     <div class="card-header">
-                        <h5>Detalhes</h5>
+                        <h5>Descrição </h5>
                     </div>
                     <div class="card-body">
                         <p>@Model.Descricao</p>
                     </div>
                 </div>
-                <!-- /.card -->
-
             </div>
-            <!-- /.col-lg-9 -->
-
         </div>
 
     </div>

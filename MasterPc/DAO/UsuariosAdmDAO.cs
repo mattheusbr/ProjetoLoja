@@ -33,5 +33,12 @@ namespace MasterPc.DAO
                 contexto.SaveChanges();
             }
         }
+        public Usuario Busca(string login, string senha)
+        {
+            using (var contexto = new HomeContext())
+            {
+                return contexto.Usuarios.FirstOrDefault(u => u.Login == login && u.Senha == senha);
+            }
+        }
     }
 }
