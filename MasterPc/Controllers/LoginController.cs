@@ -12,8 +12,9 @@ using System.Web.Security;
 
 namespace MasterPc.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
+        HomeContext contexto = new HomeContext();
         private UsuariosDAO dao = new UsuariosDAO();
 
         // GET: /Login/

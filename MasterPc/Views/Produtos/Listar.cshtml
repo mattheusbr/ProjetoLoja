@@ -4,8 +4,6 @@
 <p>
     @Html.ActionLink("Incluir Novo Produto", "Criar", "Produtos", new { @class = "btn btn-success ml-md-3" })
 </p>
-
-
 <div class="card mb-3">
     <div class="card-header">
         <i class="fas fa-table"></i>
@@ -68,7 +66,9 @@
                                 @item.Preco
                             </td>
                             <td id="quantidade@(item.Id)">
-                                @item.Quantidade            <button href="#" class="btn btn-primary btn-sm" onclick="decrementa(@item.Id);" disabled>+</button>  <button href="#" class="btn btn-primary btn-sm" onclick="decrementa(@item.Id);" disabled>-</button>
+                                <span id="spQtde">@item.Quantidade</span>
+                                <button id="btnAdd" href="@Url.Action("Add", "Produtos", new { id = item.Id })" class="btn btn-primary btn-sm">+</button>  
+                                <button id="btnSub" href="@Url.Action("Sub", "Produtos", new { id = item.Id })" class="btn btn-primary btn-sm">-</button>
                             </td>
                             <td>
                                 @*Limitar campo de caracteres para visualizar na tabela*@
@@ -87,15 +87,30 @@
     </div>
 </div>
 
-<script type="text/javascript" src="~/Scripts/jquery-3.3.1.js"></script>
-<script type="text/javascript">
-    function decrementa(produtoId) {
-        var url = "@Url.Action("DecrementarQtd", "Produto")";
-        $.post(url, { id: produtoId }, atualiza)
+@section Scripts
+{
+    <script type="text/javascript">
+        function execute(url, row) {
+            $.ajax({
+                url: url,
+                method: "GET",
+                type: "json"
+            })
+                .done(function (data) {                     
+                    if (data) {
+                        $(row).find('[id=spQtde]').html(data);
+                    }
+                })
+                .fail(function (xhr, textStatus, errorThrow) {});
+        };
 
-    }
-
-    function atualiza(resposta) {
-        $("#quantidade" + resposta.Id).html(resposta.Quantidade);
-    }   
-</script>
+        $(function () {
+            $(document).on('click', '[id=btnAdd]', function (e) {
+                execute($(this).attr("href"), $(this).parent());
+            });
+            $(document).on('click', '[id=btnSub]', function (e) {
+                execute($(this).attr("href"), $(this).parent());
+            });
+    })
+    </script>
+}

@@ -13,7 +13,7 @@ using MasterPc.Types;
 namespace MasterPc.Controllers
 {
     [AutorizacaoFilter(Roles = new TipoUsuario[] { TipoUsuario.ADMINISTRADOR} )]
-    public class ProdutosController : Controller
+    public class ProdutosController : BaseController
     {
         private HomeContext contexto = new HomeContext();
 
@@ -130,24 +130,36 @@ namespace MasterPc.Controllers
             contexto.SaveChanges();
             return RedirectToAction("Listar");
         }
-
-        public ActionResult DecrementarQtd(int id)
+        
+        public JsonResult Add(int id)
+        {            
+            Produto produto = contexto.Produtoes.Find(id);
+            if (produto == null)
+            {
+                Response.StatusCode = 500;
+            }
+            else
+            {
+                produto.Quantidade++;
+                contexto.Entry(produto).State = EntityState.Modified;
+                contexto.SaveChanges();
+            }            
+            return Json(produto.Quantidade, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Sub(int id)
         {
             Produto produto = contexto.Produtoes.Find(id);
-            produto.Quantidade--;
-            contexto.Entry(produto).State = EntityState.Modified;
-            contexto.SaveChanges();
-            //return RedirectToAction("Listar");
-            return Json(produto);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            if (produto == null)
             {
-                contexto.Dispose();
+                Response.StatusCode = 500;
             }
-            base.Dispose(disposing);
+            else if(produto.Quantidade > 0)
+            {
+                produto.Quantidade--;
+                contexto.Entry(produto).State = EntityState.Modified;
+                contexto.SaveChanges();
+            }
+            return Json(produto.Quantidade, JsonRequestBehavior.AllowGet);
         }
     }
 }

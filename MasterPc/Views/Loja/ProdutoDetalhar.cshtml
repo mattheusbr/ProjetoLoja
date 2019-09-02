@@ -6,12 +6,22 @@
         <div class="col-lg-11" style="margin-left: 45px">
 
             <div class="card mt-4">
-                <img class="card-img-top img-fluid" src="data:image/jpeg;base64,@Model.Img" style="width: 1000px; height: 400px" alt="Produto: @Model.Nome">
+                @*ver se o produto tem imagem ou n, se n tiver adicionar o jpg (semimagem)*@
+                @if (!String.IsNullOrWhiteSpace(Model.Img))
+                {
+                    <img class="card-img-top img-fluid" src="data:image/jpeg;base64,@Model.Img" @*style="width: 1000px; height: 400px"*@ alt="Produto: @Model.Nome">
+                }
+                else
+                {
+                    <a href="~/Loja/ProdutoDetalhar/@Model.Id"><img class="card-img-top" src="~/Content/semimagemjpg.jpg" alt="Sem Imagem"></a>
+                }
+
                 <div class="card" style="margin-top: 0.3px"></div>
 
                 <div class="card-body">
                     <h2 class="card-title">@Model.Nome</h2>
                     <h4 style="color: green">R$@Model.Preco</h4>
+
                     <div style="float: right">
                         @if (Model.Quantidade > 0)
                         {
@@ -26,7 +36,8 @@
                     <div>
                         @if (Model.Quantidade > 0)
                         {
-                            <a align="bottom" href="~/Compra/Sucesso" class="btn btn-success">Comprar</a>
+                            @Html.ActionLink("Comprar", "AdicionarCompra", "Loja", new { id = Model.Id, quantidade = Model.Quantidade }, new { @class = "btn btn-sm btn-success" })
+
                         }
                         else
                         {
@@ -45,7 +56,7 @@
                         <h5>Descrição </h5>
                     </div>
                     <div class="card-body">
-                        <p>@Model.Descricao</p>
+                        <p>@(new HtmlString(@Model.Descricao))</p>
                     </div>
                 </div>
             </div>

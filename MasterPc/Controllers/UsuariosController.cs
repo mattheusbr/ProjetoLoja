@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace MasterPc.Controllers
 {    
-    public class UsuariosController : Controller
+    public class UsuariosController : BaseController
     {
         private HomeContext db = new HomeContext();
         private UsuariosDAO dao = new UsuariosDAO();
@@ -74,16 +74,16 @@ namespace MasterPc.Controllers
             ModelState.Where(c => c.Key.Equals(nameof(usuario.Senha))).ToList().ForEach(c => ModelState.Remove(c));
 
             //Fazer o sistema que compara o login dele com o banco menos com ele mesmo
-            //if (db.Usuarios.Where(x => x.Login == usuario.Login).Count() > 0)
-            //{
-            //    ModelState.AddModelError("Login", "Login existente.");
-            //}
+            if (db.Usuarios.Where(x => x.Login == usuario.Login && usuario.Id != x.Id).Count() > 0)
+            {
+                ModelState.AddModelError("Login", "Login existente.");
+            }
 
             //Fazer o sistema que compara o cpf dele com o banco menos com ele mesmo
-            //if (db.Usuarios.Where(x => x.CPF == usuario.CPF).Count() > 0)
-            //{
-            //    ModelState.AddModelError("CPF", "CPF já cadastrado");
-            //}
+            if (db.Usuarios.Where(x => x.CPF == usuario.CPF && usuario.Id != x.Id).Count() > 0)
+            {
+                ModelState.AddModelError("CPF", "CPF já cadastrado");
+            }
 
             if (ModelState.IsValid)
             {

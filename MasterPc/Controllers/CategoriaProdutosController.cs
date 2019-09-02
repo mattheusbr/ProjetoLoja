@@ -13,7 +13,7 @@ using MasterPc.Types;
 namespace MasterPc.Controllers
 {
     [AutorizacaoFilter(Roles = new TipoUsuario[] { TipoUsuario.ADMINISTRADOR })]
-    public class CategoriaProdutosController : Controller
+    public class CategoriaProdutosController : BaseController
     {
         private HomeContext db = new HomeContext();
 

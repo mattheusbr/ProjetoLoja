@@ -209,6 +209,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\CategoriaProdutosController.cs" />
     <Compile Include="Controllers\LojaController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
@@ -224,22 +226,27 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Context\HomeContext.cs" />
-    <Compile Include="Migrations\201908292232205_Projeto.cs" />
-    <Compile Include="Migrations\201908292232205_Projeto.Designer.cs">
-      <DependentUpon>201908292232205_Projeto.cs</DependentUpon>
+    <Compile Include="Migrations\201909021726492_Home.cs" />
+    <Compile Include="Migrations\201909021726492_Home.Designer.cs">
+      <DependentUpon>201909021726492_Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
+    <Compile Include="Models\Compra.cs" />
+    <Compile Include="Models\CompraProduto.cs" />
     <Compile Include="Models\Genero.cs" />
+    <Compile Include="Models\MenuCategoria.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\StatusCompra.cs" />
     <Compile Include="Types\TipoUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\sb-admin.css" />
     <Content Include="Content\css\sb-admin.min.css" />
     <Content Include="Content\css\pag-produto.css" />
+    <Content Include="Content\css\style.css" />
     <Content Include="Content\img\01.png" />
     <Content Include="Content\img\02.jpg" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
@@ -2044,10 +2051,12 @@
     <Content Include="Views\CategoriaProdutos\Criar.cshtml" />
     <Content Include="Views\CategoriaProdutos\Editar.cshtml" />
     <Content Include="Views\CategoriaProdutos\Deletar.cshtml" />
-    <Content Include="Views\Loja\Compra.cshtml" />
+    <Content Include="Views\Carrinho\_Compra.cshtml" />
+    <Content Include="Views\Carrinho\Compra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2062,8 +2071,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908292232205_Projeto.resx">
-      <DependentUpon>201908292232205_Projeto.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909021726492_Home.resx">
+      <DependentUpon>201909021726492_Home.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
