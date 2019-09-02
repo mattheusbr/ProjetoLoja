@@ -44,7 +44,7 @@ namespace MasterPc.Filtros
                         new
                         {
                             controller = "Login",
-                            action = "Index"
+                            action = "Logar"
                         }));
             }
         }

@@ -1,8 +1,10 @@
 ﻿using MasterPc.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MasterPc.DAO
 {
@@ -14,14 +16,6 @@ namespace MasterPc.DAO
             {
                 context.Usuarios.Add(usuario);
                 context.SaveChanges();
-            }
-        }
-
-        public IList<Usuario> Lista()
-        {
-            using (var contexto = new HomeContext())
-            {
-                return contexto.Usuarios.ToList();
             }
         }
 
@@ -37,7 +31,7 @@ namespace MasterPc.DAO
         {
             using (var contexto = new HomeContext())
             {
-                contexto.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
+                contexto.Entry(usuario).State = EntityState.Modified;
                 contexto.SaveChanges();
             }
         }

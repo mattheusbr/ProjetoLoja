@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MasterPc.Models.CategoriaProduto>
+
+<title>MasterPcAdmin - Cadastro de Categoria</title>
+<p>
+    @Html.ActionLink("Incluir Nova Categoria", "Criar", "CategoriaProdutos", new { @class = "btn btn-success ml-md-3" })
+</p>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Lista de categorias
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </th>
+                        <th>Alterações</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </th>
+                        <th>Alterações</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.Nome
+                            </td>
+                            <td>
+                                @item.Descricao.Substring(0, (item.Descricao.Length > 42 ? 42 : item.Descricao.Length))@Html.ActionLink("...", "Details", new { id = item.Id })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" })
+                                @Html.ActionLink("Detalhar", "Detalhar", new { id = item.Id }, new { @class = "btn btn-sm btn-secondary " })
+                                @Html.ActionLink("Deletar", "Deletar", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

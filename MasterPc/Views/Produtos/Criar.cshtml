@@ -1,0 +1,71 @@
+﻿@model MasterPc.Models.Produto
+
+<title>MasterPcAdmin - Cadastro de Produtos</title>
+
+@using (Html.BeginForm("Criar", "Produtos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="card mb-3">
+        <div class="card-header">
+            <h4>Adicionar novo produto</h4>
+        </div>
+        <div class="card-body">
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoriaId, "Categoria", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("CategoriaId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CategoriaId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Preco, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Preco, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Preco, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Quantidade, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Quantidade, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Quantidade, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Descricao, new { @class = "form-control", rows="8" })
+                        @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <labal class="ml-3">Imagem do Produto</labal>
+                <div class="form-group ml-3 mt-2">
+                    <fieldset>
+                        <input type="file" id="file" name="file" />
+                    </fieldset>
+                </div>
+                <div>
+                    <div class="row">
+                        <input type="submit" value="Cadastrar" class="btn btn-success ml-5 mr-2" />
+                        <a align="bottom" href="~/Produtos/Listar" class="btn btn-primary">Listar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer small text-muted">Horario de Alteração @DateTime.Now </div>
+    </div>
+}

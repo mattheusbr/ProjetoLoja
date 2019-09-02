@@ -1,0 +1,66 @@
+﻿@model MasterPc.Models.Produto
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-11" style="margin-left: 45px">
+
+            <div class="card mt-4">
+                @*ver se o produto tem imagem ou n, se n tiver adicionar o jpg (semimagem)*@
+                @if (!String.IsNullOrWhiteSpace(Model.Img))
+                {
+                    <img class="card-img-top img-fluid" src="data:image/jpeg;base64,@Model.Img" @*style="width: 1000px; height: 400px"*@ alt="Produto: @Model.Nome">
+                }
+                else
+                {
+                    <a href="~/Loja/ProdutoDetalhar/@Model.Id"><img class="card-img-top" src="~/Content/semimagemjpg.jpg" alt="Sem Imagem"></a>
+                }
+
+                <div class="card" style="margin-top: 0.3px"></div>
+
+                <div class="card-body">
+                    <h2 class="card-title">@Model.Nome</h2>
+                    <h4 style="color: green">R$@Model.Preco</h4>
+
+                    <div style="float: right">
+                        @if (Model.Quantidade > 0)
+                        {
+                            <h5>Quantidade: @Model.Quantidade</h5>
+                        }
+                        else
+                        {
+                            <h5>Produto Indisponivel</h5>
+                        }
+                    </div>
+
+                    <div>
+                        @if (Model.Quantidade > 0)
+                        {
+                            @Html.ActionLink("Comprar", "AdicionarCompra", "Loja", new { id = Model.Id, quantidade = Model.Quantidade }, new { @class = "btn btn-sm btn-success" })
+
+                        }
+                        else
+                        {
+                            <a align="bottom" href="~/Compra/Sucesso" class="btn btn-success disabled">Comprar</a>
+                        }
+                    </div>
+
+                    <div style="float: right">
+                        <h5>Categoria: @Model.Categoria.Nome</h5>
+                    </div>
+
+                </div>
+
+                <div class="card card-outline-secondary ">
+                    <div class="card-header">
+                        <h5>Descrição </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>@(new HtmlString(@Model.Descricao))</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

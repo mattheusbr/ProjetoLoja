@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using MasterPc.Types;
 
 namespace MasterPc.Models
 {
     public class Compra
     {
         public int Id { get; set; }
-        public int ProdutoId { get; set; }
 
-        public virtual Produto Produto { get; set; }
+        public virtual Usuario Usuario { get; set; }
 
-        public int Quantidade { get; set; }
+        public int UsuarioId { get; set; }
 
-        public decimal Valor { get; set; }
+        public StatusCompra Status { get; set; }
 
-        public DateTime CompraHora { get; set; }
+        public DateTime Data { get; set; }
 
+        public List<CompraProduto> CompraProdutos { get; set; }
     }
 }

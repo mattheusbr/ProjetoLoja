@@ -1,0 +1,67 @@
+﻿@model List<MasterPc.Models.Produto>
+
+<title>MasterPc</title>
+
+<body style="background-color: darkgrey">
+    <!-- Page Content -->
+
+    <div class="">
+        <div class="container ">
+            <div>
+                <div class="" style="">
+
+
+
+                    @{
+                        const int TAMANHO_PAGINA = 10;
+                        const int paginas = 1;
+
+                    }
+
+                    @for (int pagina = 0; pagina < paginas; pagina++)
+                    {
+
+                        <div class="item">
+                            <div class="row">
+
+                                @{
+                                    var produtosDaPagina = Model.Skip(pagina * TAMANHO_PAGINA).Take(TAMANHO_PAGINA);
+                                }
+
+                                @foreach (var produto in produtosDaPagina)
+                                {
+                                    <div class="col-lg-3" style="margin-bottom: 40px">
+                                        <div class="card h-100">
+
+                                            @*ver se o produto tem imagem ou n, se n tiver adicionar o jpg (semimagem)*@
+                                            @if (!String.IsNullOrWhiteSpace(produto.Img))
+                                            {
+                                                <a href="~/Loja/ProdutoDetalhar/@produto.Id"><img class="card-img-top" src="data:image/jpeg;base64,@produto.Img" alt="@produto.Nome"></a>
+                                            }
+                                            else
+                                            {
+                                                <a href="~/Loja/ProdutoDetalhar/@produto.Id"><img class="card-img-top" src="~/Content/semimagemjpg.jpg" alt="Sem Imagem"></a>
+                                            }
+                                            <div class="card-footer" style="margin-top: 0.3px"></div>
+
+                                            <div class="card-body">
+                                                <h4 class="card-title">
+                                                    <a>@produto.Nome</a>
+                                                </h4>
+                                                <h5 style="color: green">R$@produto.Preco</h5>
+                                                <p class="card-text"></p>
+                                            </div>
+                                            <div class="card-footer">
+                                                @Html.ActionLink("Comprar", "ProdutoDetalhar", new { Id = produto.Id }, new { @class = "btn btn-sm btn-success " })
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

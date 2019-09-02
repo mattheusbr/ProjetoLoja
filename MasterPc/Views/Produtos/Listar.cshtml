@@ -1,0 +1,116 @@
+﻿@model IEnumerable<MasterPc.Models.Produto>
+
+<title>MasterPcAdmin - Criar Produtos</title>
+<p>
+    @Html.ActionLink("Incluir Novo Produto", "Criar", "Produtos", new { @class = "btn btn-success ml-md-3" })
+</p>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Lista de produtos
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Categoria)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Preco)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Quantidade)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </th>
+                        <th>Alterações</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Categoria)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Preco)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Quantidade)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </th>
+                        <th>Alterações</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.Categoria.Nome
+                            </td>
+                            <td>
+                                @item.Nome
+                            </td>
+                            <td>
+                                @item.Preco
+                            </td>
+                            <td id="quantidade@(item.Id)">
+                                <span id="spQtde">@item.Quantidade</span>
+                                <button id="btnAdd" href="@Url.Action("Add", "Produtos", new { id = item.Id })" class="btn btn-primary btn-sm">+</button>  
+                                <button id="btnSub" href="@Url.Action("Sub", "Produtos", new { id = item.Id })" class="btn btn-primary btn-sm">-</button>
+                            </td>
+                            <td>
+                                @*Limitar campo de caracteres para visualizar na tabela*@
+                                @item.Descricao.Substring(0, (item.Descricao.Length > 20 ? 20 : item.Descricao.Length))@Html.ActionLink("...", "Detalhar", new { id = item.Id })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" })
+                                @Html.ActionLink("Detalhar", "Detalhar", new { id = item.Id }, new { @class = "btn btn-sm btn-secondary " })
+                                @Html.ActionLink("Deletar", "Deletar", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        function execute(url, row) {
+            $.ajax({
+                url: url,
+                method: "GET",
+                type: "json"
+            })
+                .done(function (data) {                     
+                    if (data) {
+                        $(row).find('[id=spQtde]').html(data);
+                    }
+                })
+                .fail(function (xhr, textStatus, errorThrow) {});
+        };
+
+        $(function () {
+            $(document).on('click', '[id=btnAdd]', function (e) {
+                execute($(this).attr("href"), $(this).parent());
+            });
+            $(document).on('click', '[id=btnSub]', function (e) {
+                execute($(this).attr("href"), $(this).parent());
+            });
+    })
+    </script>
+}

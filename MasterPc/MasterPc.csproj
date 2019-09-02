@@ -189,7 +189,7 @@
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -209,11 +209,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CategoriaProdutoesController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginAdmController.cs" />
-    <Compile Include="Controllers\ProdutoesController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CarrinhoController.cs" />
+    <Compile Include="Controllers\CategoriaProdutosController.cs" />
+    <Compile Include="Controllers\LojaController.cs" />
+    <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UsuariosAdmController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="DAO\UsuariosAdmDAO.cs" />
     <Compile Include="DAO\UsuariosDAO.cs" />
     <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Filtros\CustomValidationCPFAttribute.cs" />
@@ -222,26 +226,29 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Context\HomeContext.cs" />
-    <Compile Include="Migrations\201908221707392_Home.cs" />
-    <Compile Include="Migrations\201908221707392_Home.Designer.cs">
-      <DependentUpon>201908221707392_Home.cs</DependentUpon>
+    <Compile Include="Migrations\201909021726492_Home.cs" />
+    <Compile Include="Migrations\201909021726492_Home.Designer.cs">
+      <DependentUpon>201909021726492_Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
     <Compile Include="Models\Compra.cs" />
-    <Compile Include="Models\DescontoProduto.cs" />
-    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\CompraProduto.cs" />
     <Compile Include="Models\Genero.cs" />
+    <Compile Include="Models\MenuCategoria.cs" />
     <Compile Include="Models\Produto.cs" />
-    <Compile Include="Models\Telefone.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\StatusCompra.cs" />
     <Compile Include="Types\TipoUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\sb-admin.css" />
     <Content Include="Content\css\sb-admin.min.css" />
     <Content Include="Content\css\pag-produto.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\img\01.png" />
+    <Content Include="Content\img\02.jpg" />
     <Content Include="Content\js\demo\chart-area-demo.js" />
     <Content Include="Content\js\demo\chart-bar-demo.js" />
     <Content Include="Content\js\demo\chart-pie-demo.js" />
@@ -2001,6 +2008,7 @@
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\CEP.js" />
+    <Content Include="Scripts\Mascara.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -2011,15 +2019,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Views\LoginAdm\Create.cshtml" />
-    <Content Include="Views\Login\Edit.cshtml" />
-    <Content Include="Views\LoginAdm\Edit.cshtml" />
-    <Content Include="Views\LoginAdm\Lista.cshtml" />
-    <Content Include="Views\LoginAdm\Delete.cshtml" />
-    <Content Include="Views\Login\Endereco.cshtml" />
-    <Content Include="Views\Home\_Produto.cshtml" />
-    <Content Include="Views\Home\Produto.cshtml" />
-    <None Include="Views\Produtoes\index.cshtml" />
+    <Content Include="Views\Login\Logar.cshtml" />
+    <Content Include="Views\Loja\Catalogo.cshtml" />
+    <Content Include="Views\Loja\ListarCategoria.cshtml" />
+    <Content Include="Views\Loja\ProdutoDetalhar.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2030,23 +2033,30 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_MenuSuperior.cshtml" />
-    <Content Include="Views\Produtoes\Create.cshtml" />
-    <Content Include="Views\Produtoes\Delete.cshtml" />
-    <Content Include="Views\Produtoes\Details.cshtml" />
-    <Content Include="Views\Produtoes\Edit.cshtml" />
-    <Content Include="Views\CategoriaProdutoes\Create.cshtml" />
-    <Content Include="Views\CategoriaProdutoes\Delete.cshtml" />
-    <Content Include="Views\CategoriaProdutoes\Details.cshtml" />
-    <Content Include="Views\CategoriaProdutoes\Edit.cshtml" />
-    <Content Include="Views\CategoriaProdutoes\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Login\Create.cshtml" />
+    <Content Include="Views\Usuarios\Criar.cshtml" />
+    <Content Include="Views\Usuarios\Editar.cshtml" />
+    <Content Include="Views\Usuarios\Deletar.cshtml" />
+    <Content Include="Views\UsuariosAdm\Criar.cshtml" />
+    <Content Include="Views\UsuariosAdm\Listar.cshtml" />
+    <Content Include="Views\UsuariosAdm\Editar.cshtml" />
+    <Content Include="Views\UsuariosAdm\Deletar.cshtml" />
+    <Content Include="Views\Produtos\Listar.cshtml" />
+    <Content Include="Views\Produtos\Detalhar.cshtml" />
+    <Content Include="Views\Produtos\Criar.cshtml" />
+    <Content Include="Views\Produtos\Editar.cshtml" />
+    <Content Include="Views\Produtos\Deletar.cshtml" />
+    <Content Include="Views\CategoriaProdutos\Listar.cshtml" />
+    <Content Include="Views\CategoriaProdutos\Detalhar.cshtml" />
+    <Content Include="Views\CategoriaProdutos\Criar.cshtml" />
+    <Content Include="Views\CategoriaProdutos\Editar.cshtml" />
+    <Content Include="Views\CategoriaProdutos\Deletar.cshtml" />
+    <Content Include="Views\Carrinho\_Compra.cshtml" />
+    <Content Include="Views\Carrinho\Compra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2061,8 +2071,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908221707392_Home.resx">
-      <DependentUpon>201908221707392_Home.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909021726492_Home.resx">
+      <DependentUpon>201909021726492_Home.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
