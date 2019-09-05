@@ -10,11 +10,13 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace MasterPc.Controllers
-{    
+{
     public class UsuariosController : BaseController
     {
         private HomeContext db = new HomeContext();
         private UsuariosDAO dao = new UsuariosDAO();
+
+        //=========================================\\
 
         public ActionResult Criar()
         {
@@ -48,6 +50,8 @@ namespace MasterPc.Controllers
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
             return View(usuario);
         }
+
+        //=========================================\\
 
         [AutorizacaoFilter]
         public ActionResult Editar(int? id)
@@ -87,6 +91,7 @@ namespace MasterPc.Controllers
 
             if (ModelState.IsValid)
             {
+                usuario.TipoUsuario = TipoUsuario.USUARIO;
                 Usuario up = dao.BuscaPorId(usuario.Id);
                 if (string.IsNullOrWhiteSpace(usuario.Senha))
                     usuario.Senha = up.Senha;
@@ -95,15 +100,6 @@ namespace MasterPc.Controllers
             }
             ViewBag.GeneroId = new SelectList(db.Generos, "Id", "GeneroUsuario", usuario.GeneroId);
             return View(usuario);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

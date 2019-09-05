@@ -217,6 +217,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UsuariosAdmController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Criptografar\Criptografia.cs" />
     <Compile Include="DAO\UsuariosAdmDAO.cs" />
     <Compile Include="DAO\UsuariosDAO.cs" />
     <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />

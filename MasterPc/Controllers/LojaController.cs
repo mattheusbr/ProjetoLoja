@@ -20,6 +20,8 @@ namespace MasterPc.Controllers
             return View(produtoes);
         }
 
+        //=========================================\\
+
         //===Categorias===
         [Route("Produtos/Categoria/{id}")]
         public ActionResult ListarCategoria(int id)
@@ -28,6 +30,8 @@ namespace MasterPc.Controllers
 
             return View(categorias);
         }
+
+        //=========================================\\
 
         //Mostrar Produto detalhado para comprar 
         public ActionResult ProdutoDetalhar(int? id)
@@ -45,6 +49,9 @@ namespace MasterPc.Controllers
             return View(produto);
         }
 
+        //=========================================\\
+
+
         //Metodo para salvar uma compra e mandar para o carrinho de compra
         [AutorizacaoFilter]
         public ActionResult AdicionarCompra(int id, int quantidade)
@@ -61,9 +68,6 @@ namespace MasterPc.Controllers
                 compra.UsuarioId = usuario.Id;
                 compra.Status = Types.StatusCompra.Aberto;
                 compra.Data = DateTime.Now;
-                //Criar lista CompraProduto
-                //List<CompraProduto> list = new List<CompraProduto>();
-                //Criar Compraproduto
                 CompraProduto item = new CompraProduto();
                 item.ProdutoId = id;
                 item.Quantidade = quantidade;

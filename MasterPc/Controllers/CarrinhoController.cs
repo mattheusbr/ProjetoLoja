@@ -15,6 +15,8 @@ namespace MasterPc.Controllers
             return View();
         }
 
+        //=========================================\\
+
         public ActionResult Compra()
         {
             Usuario usuario = new Usuario();
@@ -33,6 +35,8 @@ namespace MasterPc.Controllers
             }
             return View(compra);
         }
+
+        //=========================================\\
 
         public ActionResult Finalizar(int id)
         {
@@ -58,6 +62,8 @@ namespace MasterPc.Controllers
 
             return RedirectToAction("Catalogo", "Loja");
         }
+
+        //=========================================\\
 
         public ActionResult RemoverItem(int id)
         {
