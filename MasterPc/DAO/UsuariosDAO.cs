@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MasterPc.Criptografar;
 
 namespace MasterPc.DAO
 {
@@ -14,6 +15,7 @@ namespace MasterPc.DAO
         {
             using (var context = new HomeContext())
             {
+
                 context.Usuarios.Add(usuario);
                 context.SaveChanges();
             }

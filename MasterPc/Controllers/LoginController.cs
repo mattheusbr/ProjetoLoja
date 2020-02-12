@@ -23,6 +23,8 @@ namespace MasterPc.Controllers
             return View();
         }
 
+        //=========================================\\
+
         public ActionResult Autentica(String login, String senha)
         {
             Usuario usuario = dao.Busca(login, senha);
@@ -36,6 +38,8 @@ namespace MasterPc.Controllers
                 return RedirectToAction("Logar");
             }
         }
+
+        //=========================================\\
 
         public ActionResult Logout()
         {

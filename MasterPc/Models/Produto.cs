@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MasterPc.Models
 {
@@ -26,6 +27,7 @@ namespace MasterPc.Models
         public int Quantidade { get; set; }
 
         [Required(ErrorMessage = "A descrição do produto é obrigatório.")]
+        [AllowHtml]
         public string Descricao { get; set; }
 
         public string Img { get; set; }
