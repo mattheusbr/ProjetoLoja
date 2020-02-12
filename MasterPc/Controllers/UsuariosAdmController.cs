@@ -26,7 +26,6 @@ namespace MasterPc.Controllers
 
         }
 
-        //=========================================\\
         [Route("Admin/Usuario/Criar")]
         public ActionResult Criar()
         {
@@ -39,7 +38,6 @@ namespace MasterPc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Criar([Bind(Include = "Id,Nome,GeneroId,Login,Senha,CPF,TipoUsuario,Rua,Numero,Bairro,Municipio,Estado,cep,Complemento,Celular")] Usuario usuario)
         {
-            //Consulta no banco se o login existe
             if (db.Usuarios.Where(x => x.Login == usuario.Login).Count() > 0)
             {
                 ModelState.AddModelError("Login", "Login existente.");
@@ -59,7 +57,6 @@ namespace MasterPc.Controllers
             return View(usuario);
         }
 
-        //=========================================\\
         [Route("Admin/Usuario/Editar/{id}")]
         public ActionResult Editar(int? id)
         {
@@ -84,14 +81,11 @@ namespace MasterPc.Controllers
             //Remove a necessidade de editar a senha
             ModelState.Where(c => c.Key.Equals(nameof(usuario.Senha))).ToList().ForEach(c => ModelState.Remove(c));
 
-            //Fazer o sistema que compara o login dele com o banco menos com ele mesmo
             if (db.Usuarios.Where(x => x.Login == usuario.Login && usuario.Id != x.Id).Count() > 0)
             {
                 ModelState.AddModelError("Login", "Login existente.");
             }
 
-
-            //Fazer o sistema que compara o cpf dele com o banco menos com ele mesmo
             if (db.Usuarios.Where(x => x.CPF == usuario.CPF && usuario.Id != x.Id).Count() > 0)
             {
                 ModelState.AddModelError("CPF", "CPF já cadastrado");
@@ -110,7 +104,6 @@ namespace MasterPc.Controllers
             return View(usuario);
         }
 
-        //=========================================\\,
         public ActionResult Deletar(int? id)
         {
             if (id == null)
@@ -135,7 +128,5 @@ namespace MasterPc.Controllers
             db.SaveChanges();
             return RedirectToAction("Listar");
         }
-
-        //=========================================\\
     }
 }

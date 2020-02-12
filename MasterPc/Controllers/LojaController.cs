@@ -12,35 +12,29 @@ namespace MasterPc.Controllers
 {
     public class LojaController : BaseController
     {
-        private HomeContext contexto = new HomeContext();
 
         public ActionResult Catalogo()
         {
-            var produtoes = contexto.Produtoes.Select(x => x).ToList();
+            var produtoes = _homeContext.Produtoes.Select(x => x).ToList();
             return View(produtoes);
         }
 
-        //=========================================\\
-
-        //===Categorias===
         [Route("Produtos/Categoria/{id}")]
         public ActionResult ListarCategoria(int id)
         {
-            var categorias = contexto.Produtoes.Select(x => x).Where(x => x.CategoriaId == id).ToList();
+            var categorias = _homeContext.Produtoes.Select(x => x).Where(x => x.CategoriaId == id).ToList();
 
             return View(categorias);
         }
 
-        //=========================================\\
 
-        //Mostrar Produto detalhado para comprar 
         public ActionResult ProdutoDetalhar(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = contexto.Produtoes.Find(id);
+            Produto produto = _homeContext.Produtoes.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -49,10 +43,6 @@ namespace MasterPc.Controllers
             return View(produto);
         }
 
-        //=========================================\\
-
-
-        //Metodo para salvar uma compra e mandar para o carrinho de compra
         [AutorizacaoFilter]
         public ActionResult AdicionarCompra(int id, int quantidade)
         {
@@ -72,15 +62,15 @@ namespace MasterPc.Controllers
                 item.ProdutoId = id;
                 item.Quantidade = quantidade;
 
-                _homeContext.Compras.Add(compra);
+                base._homeContext.Compras.Add(compra);
                 item.CompraId = compra.Id;
-                _homeContext.CompraProdutos.Add(item);
+                base._homeContext.CompraProdutos.Add(item);
 
-                _homeContext.SaveChanges();
+                base._homeContext.SaveChanges();
             }
             else
             {
-                CompraProduto item = _homeContext.CompraProdutos.FirstOrDefault(c => c.ProdutoId == id && c.CompraId == compra.Id);
+                CompraProduto item = base._homeContext.CompraProdutos.FirstOrDefault(c => c.ProdutoId == id && c.CompraId == compra.Id);
                 if (item == null)
                 {
                     item = new CompraProduto()
@@ -88,14 +78,12 @@ namespace MasterPc.Controllers
                         CompraId = compra.Id,
                         ProdutoId = id
                     };
-                    _homeContext.CompraProdutos.Add(item);
+                    base._homeContext.CompraProdutos.Add(item);
                 }
                 item.Quantidade++;
-                _homeContext.SaveChanges();
+                base._homeContext.SaveChanges();
             }
-
             return RedirectToAction("Compra", "Carrinho");
         }
-
     }
 }

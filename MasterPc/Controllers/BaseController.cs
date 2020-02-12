@@ -1,4 +1,5 @@
-﻿using MasterPc.Models;
+﻿using MasterPc.DAO;
+using MasterPc.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,12 @@ using System.Web.Mvc;
 
 namespace MasterPc.Controllers
 {
-    //Controllers herda ela sempre
     public class BaseController : Controller
     {
-        protected HomeContext _homeContext = new HomeContext();
+        public HomeContext _homeContext = new HomeContext();
+        public UsuariosDAO _usuariodao = new UsuariosDAO();
 
-        //Evento que executa antes de redenrizar a view
+        //Executa antes de redenrizar a view
         protected override void OnResultExecuting(ResultExecutingContext filterContext)
         {
             base.OnResultExecuting(filterContext);

@@ -15,11 +15,10 @@ namespace MasterPc.Controllers
     [AutorizacaoFilter(Roles = new TipoUsuario[] { TipoUsuario.ADMINISTRADOR} )]
     public class ProdutosController : BaseController
     {
-        private HomeContext contexto = new HomeContext();
 
         public ActionResult Listar()
         {
-            var produtoes = contexto.Produtoes.Select(x => x).ToList();
+            var produtoes = _homeContext.Produtoes.Select(x => x).ToList();
             
             
             return View(produtoes);
@@ -31,7 +30,7 @@ namespace MasterPc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = contexto.Produtoes.Find(id);
+            Produto produto = _homeContext.Produtoes.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -41,7 +40,7 @@ namespace MasterPc.Controllers
 
         public ActionResult Criar()
         {
-            ViewBag.CategoriaId = new SelectList(contexto.CategoriaProdutoes, "Id", "Nome");
+            ViewBag.CategoriaId = new SelectList(_homeContext.CategoriaProdutoes, "Id", "Nome");
             return View();
         }
 
@@ -59,13 +58,12 @@ namespace MasterPc.Controllers
                     file.InputStream.Read(buffer, 0, buffer.Length);
                     produto.Img =  Convert.ToBase64String(buffer);
                 }
-                //add e salva produto
-                contexto.Produtoes.Add(produto);
-                contexto.SaveChanges();
+                _homeContext.Produtoes.Add(produto);
+                _homeContext.SaveChanges();
                 return RedirectToAction("Listar");
             }
 
-            ViewBag.CategoriaId = new SelectList(contexto.CategoriaProdutoes, "Id", "Nome", produto.CategoriaId);
+            ViewBag.CategoriaId = new SelectList(_homeContext.CategoriaProdutoes, "Id", "Nome", produto.CategoriaId);
             return View(produto);
         }
 
@@ -75,12 +73,12 @@ namespace MasterPc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = contexto.Produtoes.Find(id);
+            Produto produto = _homeContext.Produtoes.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoriaId = new SelectList(contexto.CategoriaProdutoes, "Id", "Nome", produto.CategoriaId);
+            ViewBag.CategoriaId = new SelectList(_homeContext.CategoriaProdutoes, "Id", "Nome", produto.CategoriaId);
             return View(produto);
         }
 
@@ -98,11 +96,11 @@ namespace MasterPc.Controllers
                     file.InputStream.Read(buffer, 0, buffer.Length);
                     produto.Img = Convert.ToBase64String(buffer);
                 }
-                contexto.Entry(produto).State = EntityState.Modified;
-                contexto.SaveChanges();
+                _homeContext.Entry(produto).State = EntityState.Modified;
+                _homeContext.SaveChanges();
                 return RedirectToAction("Listar");
             }
-            ViewBag.CategoriaId = new SelectList(contexto.CategoriaProdutoes, "Id", "Nome", produto.CategoriaId);
+            ViewBag.CategoriaId = new SelectList(_homeContext.CategoriaProdutoes, "Id", "Nome", produto.CategoriaId);
             return View(produto);
         }
         
@@ -112,7 +110,7 @@ namespace MasterPc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = contexto.Produtoes.Find(id);
+            Produto produto = _homeContext.Produtoes.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -125,15 +123,15 @@ namespace MasterPc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletarConfirmado(int id)
         {
-            Produto produto = contexto.Produtoes.Find(id);
-            contexto.Produtoes.Remove(produto);
-            contexto.SaveChanges();
+            Produto produto = _homeContext.Produtoes.Find(id);
+            _homeContext.Produtoes.Remove(produto);
+            _homeContext.SaveChanges();
             return RedirectToAction("Listar");
         }
         
         public JsonResult Add(int id)
         {            
-            Produto produto = contexto.Produtoes.Find(id);
+            Produto produto = _homeContext.Produtoes.Find(id);
             if (produto == null)
             {
                 Response.StatusCode = 500;
@@ -141,14 +139,14 @@ namespace MasterPc.Controllers
             else
             {
                 produto.Quantidade++;
-                contexto.Entry(produto).State = EntityState.Modified;
-                contexto.SaveChanges();
+                _homeContext.Entry(produto).State = EntityState.Modified;
+                _homeContext.SaveChanges();
             }            
             return Json(produto.Quantidade, JsonRequestBehavior.AllowGet);
         }
         public JsonResult Sub(int id)
         {
-            Produto produto = contexto.Produtoes.Find(id);
+            Produto produto = _homeContext.Produtoes.Find(id);
             if (produto == null)
             {
                 Response.StatusCode = 500;
@@ -156,8 +154,8 @@ namespace MasterPc.Controllers
             else if(produto.Quantidade > 0)
             {
                 produto.Quantidade--;
-                contexto.Entry(produto).State = EntityState.Modified;
-                contexto.SaveChanges();
+                _homeContext.Entry(produto).State = EntityState.Modified;
+                _homeContext.SaveChanges();
             }
             return Json(produto.Quantidade, JsonRequestBehavior.AllowGet);
         }

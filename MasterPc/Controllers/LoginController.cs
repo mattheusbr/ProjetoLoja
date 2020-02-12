@@ -14,20 +14,15 @@ namespace MasterPc.Controllers
 {
     public class LoginController : BaseController
     {
-        HomeContext contexto = new HomeContext();
-        private UsuariosDAO dao = new UsuariosDAO();
 
-        // GET: /Login/
         public ActionResult Logar()
         {
             return View();
         }
 
-        //=========================================\\
-
         public ActionResult Autentica(String login, String senha)
         {
-            Usuario usuario = dao.Busca(login, senha);
+            Usuario usuario = _usuariodao.Busca(login, senha);
             if (usuario != null)
             {
                 Session["usuarioLogado"] = usuario;
@@ -38,8 +33,6 @@ namespace MasterPc.Controllers
                 return RedirectToAction("Logar");
             }
         }
-
-        //=========================================\\
 
         public ActionResult Logout()
         {

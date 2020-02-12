@@ -9,13 +9,10 @@ namespace MasterPc.Controllers
 {
     public class CarrinhoController : BaseController
     {
-        // GET: Carrinho
         public ActionResult Index()
         {
             return View();
         }
-
-        //=========================================\\
 
         public ActionResult Compra()
         {
@@ -35,8 +32,6 @@ namespace MasterPc.Controllers
             }
             return View(compra);
         }
-
-        //=========================================\\
 
         public ActionResult Finalizar(int id)
         {
@@ -62,8 +57,6 @@ namespace MasterPc.Controllers
 
             return RedirectToAction("Catalogo", "Loja");
         }
-
-        //=========================================\\
 
         public ActionResult RemoverItem(int id)
         {

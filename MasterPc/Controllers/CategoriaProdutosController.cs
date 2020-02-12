@@ -14,16 +14,14 @@ namespace MasterPc.Controllers
 {
     [AutorizacaoFilter(Roles = new TipoUsuario[] { TipoUsuario.ADMINISTRADOR })]
     public class CategoriaProdutosController : BaseController
-    {
-        private HomeContext db = new HomeContext();
+    {        
 
         [Route ("Categoria/Listar")]
         public ActionResult Listar()
         {
-            return View(db.CategoriaProdutoes.ToList());
+            return View(_homeContext.CategoriaProdutoes.ToList());
         }
 
-        //=========================================\\
         [Route("Categoria/Detalhar/{id}")]
         public ActionResult Detalhar(int? id)
         {
@@ -31,7 +29,7 @@ namespace MasterPc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CategoriaProduto categoriaProduto = db.CategoriaProdutoes.Find(id);
+            CategoriaProduto categoriaProduto = _homeContext.CategoriaProdutoes.Find(id);
             if (categoriaProduto == null)
             {
                 return HttpNotFound();
@@ -39,7 +37,6 @@ namespace MasterPc.Controllers
             return View(categoriaProduto);
         }
 
-        //=========================================\\
         public ActionResult Criar()
         {
             return View();
@@ -52,22 +49,21 @@ namespace MasterPc.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.CategoriaProdutoes.Add(categoriaProduto);
-                db.SaveChanges();
+                _homeContext.CategoriaProdutoes.Add(categoriaProduto);
+                _homeContext.SaveChanges();
                 return RedirectToAction("Listar");
             }
 
             return View(categoriaProduto);
         }
 
-        //=========================================\\
         public ActionResult Editar(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CategoriaProduto categoriaProduto = db.CategoriaProdutoes.Find(id);
+            CategoriaProduto categoriaProduto = _homeContext.CategoriaProdutoes.Find(id);
             if (categoriaProduto == null)
             {
                 return HttpNotFound();
@@ -81,21 +77,20 @@ namespace MasterPc.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categoriaProduto).State = EntityState.Modified;
-                db.SaveChanges();
+                _homeContext.Entry(categoriaProduto).State = EntityState.Modified;
+                _homeContext.SaveChanges();
                 return RedirectToAction("Listar");
             }
             return View(categoriaProduto);
         }
 
-        //=========================================\\
         public ActionResult Deletar(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CategoriaProduto categoriaProduto = db.CategoriaProdutoes.Find(id);
+            CategoriaProduto categoriaProduto = _homeContext.CategoriaProdutoes.Find(id);
             if (categoriaProduto == null)
             {
                 return HttpNotFound();
@@ -107,18 +102,17 @@ namespace MasterPc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletarConfimar(int id)
         {
-            CategoriaProduto categoriaProduto = db.CategoriaProdutoes.Find(id);
-            db.CategoriaProdutoes.Remove(categoriaProduto);
-            db.SaveChanges();
+            CategoriaProduto categoriaProduto = _homeContext.CategoriaProdutoes.Find(id);
+            _homeContext.CategoriaProdutoes.Remove(categoriaProduto);
+            _homeContext.SaveChanges();
             return RedirectToAction("Listar");
         }
 
-        //=========================================\\
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                _homeContext.Dispose();
             }
             base.Dispose(disposing);
         }
