@@ -57,7 +57,7 @@
                     @if (Session.Keys.Cast<String>().Any(c => c == "usuarioLogado"))
                     {
                         <a class="dropdown-item" href="@Url.Action("Editar", "Usuarios", new { id = (Session["usuarioLogado"] as Usuario).Id })">Perfil</a>
-                        <a class="dropdown-item" href="@Url.Action("Logout", "Login", new { id = (Session["usuarioLogado"] as Usuario).Id })">Sair</a>
+                        <a class="dropdown-item" id="ButtonSair" href="javascript:;">Sair</a>
 
                     }
                     else
@@ -87,6 +87,15 @@
                     <span>Carrinho</span>
                 </a>
             </li>
+            @if (Session.Keys.Cast<String>().Any(c => c == "usuarioLogado"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="~/HistoricoDeCompra/Listar">
+                        <i class="fas fa-cart-arrow-down"></i>
+                        <span>Historico de Compras</span>
+                    </a>
+                </li>
+            }
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-folder"></i>
@@ -132,24 +141,23 @@
                 }
             }
             @*<li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span>
-            </a>
-        </li>*@
+                    <a class="nav-link" href="charts.html">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Charts</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tables.html">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Tables</span>
+                    </a>
+                </li>*@
         </ul>
 
         <div id="content-wrapper">
             <div class="container-fluid">
                 @RenderBody()
             </div>
-            <!-- Sticky Footer -->
             <footer class="sticky-footer">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -158,33 +166,35 @@
                 </div>
             </footer>
         </div>
-        <!-- /.content-wrapper -->
     </div>
-    <!-- /#wrapper -->
-    <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+    @if (Session.Keys.Cast<String>().Any(c => c == "usuarioLogado"))
+    {
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Você deseja sair ?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Selecione "Deslogar" se dejar sair da seção.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                        <a class="btn btn-primary" href="@Url.Action("Logout", "Login", new { id = (Session["usuarioLogado"] as Usuario).Id })">Deslogar</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    }
+    else
+    {
+        <a class="dropdown-item" href="~/Login/Logar">Login</a>
+    }
     <!-- Bootstrap core JavaScript-->
     <script src="~/Content/vendor/jquery/jquery.min.js"></script>
     <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -203,6 +213,13 @@
     <!-- Demo scripts for this page-->
     <script src="~/Content/js/demo/datatables-demo.js"></script>
     <script src="~/Content/js/demo/chart-area-demo.js"></script>
+    <script type="text/javascript">
+        $("#ButtonSair").on("click", function (e) {
+            e.preventDefault();
+            $("#logoutModal").modal(`show`);
+        })
+    </script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

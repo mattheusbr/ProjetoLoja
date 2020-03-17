@@ -19,5 +19,7 @@ namespace MasterPc.Models
         public DateTime Data { get; set; }
 
         public List<CompraProduto> CompraProdutos { get; set; }
+        
+        
     }
 }

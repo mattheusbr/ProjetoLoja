@@ -212,6 +212,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\CategoriaProdutosController.cs" />
+    <Compile Include="Controllers\HistoricoDeCompraController.cs" />
     <Compile Include="Controllers\LojaController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -2054,6 +2055,7 @@
     <Content Include="Views\CategoriaProdutos\Deletar.cshtml" />
     <Content Include="Views\Carrinho\_Compra.cshtml" />
     <Content Include="Views\Carrinho\Compra.cshtml" />
+    <Content Include="Views\HistoricoDeCompra\Listar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,6 +21,19 @@ namespace MasterPc.Controllers
             {
                 Categorias = _homeContext.CategoriaProdutoes.Select(x => new Categoria() { Id = x.Id, Nome = x.Nome }).ToList()
             };
-        }        
+        }
+
+        protected Usuario PegarUsuario()
+        {
+            Usuario usuario = null;
+
+            if (Session["usuarioLogado"] != null)
+            {
+                usuario = Session["usuarioLogado"] as Usuario;
+            }
+
+            return usuario;
+        }
+
     }
 }

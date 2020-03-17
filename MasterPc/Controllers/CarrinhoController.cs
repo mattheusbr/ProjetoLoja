@@ -1,4 +1,5 @@
-﻿using MasterPc.Models;
+﻿using MasterPc.Filtros;
+using MasterPc.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MasterPc.Controllers
 {
+    [AutorizacaoFilter]
     public class CarrinhoController : BaseController
     {
         public ActionResult Index()

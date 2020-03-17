@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MasterPc.Models.Compra>
+<title>MasterPc - Historico De Compras</title>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Historico de Compras    
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Codigo da compra
+                        </th>
+                        <th>
+                            Data da Compra
+                        </th>                     
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>
+                            Codigo
+                        </th>
+                        <th>
+                            Data da Compra
+                        </th>                                            
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.Id
+                            </td>
+                            <td>
+                                @item.Data
+                            </td>                          
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
